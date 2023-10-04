@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "./",
     "outDir": "dist",
     "module": "esnext",
     "target": "es5",
@@ -23,5 +23,6 @@
     "noUnusedLocals": true,
     "skipLibCheck": true
   },
-  "include": ["src"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
