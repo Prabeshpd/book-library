@@ -7,7 +7,7 @@ describe('App', () => {
     render(<App />);
 
     await waitFor(() => {
-      expect(screen.getByText('Welcome to Application')).toBeInTheDocument();
+      expect(screen.getByTestId('root')).toBeInTheDocument();
     });
   });
 });

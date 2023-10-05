@@ -1,12 +1,11 @@
-import * as React from 'react';
-
 import { Formik } from 'formik';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 import RegistrationSchema from './schema';
+import { RegisterPayload } from '../../types/users';
 
 interface InjectedProps {
-  handleFormSubmit: (payload: any) => void;
+  handleFormSubmit: (payload: RegisterPayload) => void;
 }
 
 export function RegistrationForm(props: InjectedProps) {

@@ -1,7 +1,9 @@
+import Router from './routes';
+
 const App = () => {
   return (
-    <div className="home-page">
-      <header>Welcome to Application</header>
+    <div className="home-page" data-test-id="root">
+      <Router />
     </div>
   );
 };
