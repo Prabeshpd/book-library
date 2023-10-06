@@ -38,6 +38,11 @@
     }
   }
 
+  &__upload {
+    display: flex;
+    align-items: center;
+  }
+
   &__footer {
     display: flex;
     align-items: center;
