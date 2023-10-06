@@ -9,11 +9,11 @@ export const useUserFirebaseDatabase = () => {
   const database = firebase?.database;
 
   const saveUser = async (details: any) => {
-    const { userId, email, password, name, imageUrl } = details;
+    const { id, email, password, name, imageUrl } = details;
 
     if (!database) return;
 
-    set(ref(database, '/users' + userId), { email, password, name, imageUrl }).catch((err) => {
+    set(ref(database, '/users' + id), { email, password, name, imageUrl }).catch((err) => {
       throw err;
     });
   };

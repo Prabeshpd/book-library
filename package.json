@@ -9,7 +9,7 @@
     "dev": "./node_modules/.bin/webpack-dev-server",
     "build": "yarn clean && tsc",
     "clean": "rimraf dist",
-    "json:server:start": "json-server --watch mockServer/db.json --port 3000",
+    "json:server:start": "json-server --watch mockServer/db.json --routes mockServer/routes.json --port 3000",
     "prettify": "prettier --write ."
   },
   "devDependencies": {
