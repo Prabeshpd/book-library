@@ -33,6 +33,7 @@ module.exports = {
       '@/config': path.resolve(__dirname, './src/config/'),
       '@/pages': path.resolve(__dirname, './src/pages/'),
       '@/services': path.resolve(__dirname, './src/services/'),
+      '@/constants': path.resolve(__dirname, './src/constants/'),
     },
   },
   module: {

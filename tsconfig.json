@@ -30,7 +30,8 @@
       "@/lib/*": ["./src/lib/*"],
       "@/config/*": ["./src/config/*"],
       "@/pages/*": ["./src/pages/*"],
-      "@/services/*": ["./src/services/*"]
+      "@/services/*": ["./src/services/*"],
+      "@/constants/*": ["./src/constants/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "src/lib/requestManager"],
