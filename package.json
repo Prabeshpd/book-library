@@ -9,7 +9,7 @@
     "dev": "./node_modules/.bin/webpack-dev-server",
     "build": "yarn clean && tsc",
     "clean": "rimraf dist",
-    "json:server:start": "json-server --watch mockServer/db.json --routes mockServer/routes.json --port 3000",
+    "json:server:start": "node mockServer/server.js --port 3000",
     "prettify": "prettier --write ."
   },
   "devDependencies": {
@@ -54,6 +54,7 @@
     "formik": "^2.4.5",
     "image-thumbnail": "^1.0.15",
     "json-server": "^0.17.4",
+    "json-server-auth": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.3",

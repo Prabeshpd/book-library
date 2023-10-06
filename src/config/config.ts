@@ -11,7 +11,7 @@ export interface Config {
 const config: Config = {
   nodeEnv: process.env.NODE_ENV,
   env: process.env.REACT_APP_ENV || 'dev',
-  baseURI: 'http://localhost:3000/api',
+  baseURI: process.env.REACT_BASE_API_URL || 'http://localhost:3000',
   endpoints: {
     //login
     login: '/login',
