@@ -1,14 +1,23 @@
 import { Formik } from 'formik';
 import ClipLoader from 'react-spinners/ClipLoader';
 
+import FileUploader from '@/components/FileUploader/FileUploader';
+import { useFirebaseStorage } from '@/hooks/useFirebaseStorage';
+import { RegisterPayload } from '@/types/users';
+
 import RegistrationSchema from './schema';
-import { RegisterPayload } from '../../types/users';
 
 interface InjectedProps {
   handleFormSubmit: (payload: RegisterPayload) => void;
 }
 
 export function RegistrationForm(props: InjectedProps) {
+  const { uploadFile, imageUrl, progressPercent, isUploading } = useFirebaseStorage();
+
+  const handleFileChange = async (file: File) => {
+    await uploadFile(file, '');
+  };
+
   const { handleFormSubmit } = props;
   return (
     <Formik
@@ -23,6 +32,7 @@ export function RegistrationForm(props: InjectedProps) {
           name: values.name.trim(),
           email: values.email.trim(),
           password: values.password,
+          imageUrl,
         };
 
         await handleFormSubmit(payload);
@@ -86,6 +96,15 @@ export function RegistrationForm(props: InjectedProps) {
                   />
                 </div>
                 {errors.password && touched.password && <p>{errors.password}</p>}
+              </div>
+
+              <div className="sm:col-span-4">
+                <FileUploader
+                  isLoading={isUploading}
+                  progressPercent={progressPercent}
+                  handleChange={handleFileChange}
+                />
+                {imageUrl && <img className="rounded-full w-96 h-96" src={imageUrl} alt="image description" />}
               </div>
             </div>
 

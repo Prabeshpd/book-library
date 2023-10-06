@@ -3,7 +3,8 @@
     {
       "id": 1,
       "email": "defaultUser@gmail.com",
-      "password": "Password@123"
+      "password": "Password@123",
+      "imageUrl": ""
     }
   ]
 }
