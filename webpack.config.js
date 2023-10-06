@@ -34,6 +34,8 @@ module.exports = {
       '@/pages': path.resolve(__dirname, './src/pages/'),
       '@/services': path.resolve(__dirname, './src/services/'),
       '@/constants': path.resolve(__dirname, './src/constants/'),
+      '@/actions': path.resolve(__dirname, './src/actions/'),
+      '@/reducers': path.resolve(__dirname, './src/reducers/'),
     },
   },
   module: {
