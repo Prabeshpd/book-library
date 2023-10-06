@@ -44,6 +44,7 @@ describe('SignUp Form:', () => {
         email: 'john.dee@gmail.com',
         name: 'John',
         password: 'Admin@123',
+        imageUrl: '',
       }),
     );
   });
