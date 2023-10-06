@@ -31,7 +31,9 @@
       "@/config/*": ["./src/config/*"],
       "@/pages/*": ["./src/pages/*"],
       "@/services/*": ["./src/services/*"],
-      "@/constants/*": ["./src/constants/*"]
+      "@/constants/*": ["./src/constants/*"],
+      "@/actions/*": ["./src/actions/*"],
+      "@/reducers/*": ["./src/reducers/*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx", "src/lib/requestManager"],
