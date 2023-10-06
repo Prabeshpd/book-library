@@ -3,12 +3,7 @@ import { getDatabase, Database } from 'firebase/database';
 import { getStorage, FirebaseStorage } from 'firebase/storage';
 
 import FirebaseError from '../lib/FirebaseError';
-
-export interface IFirebaseServices {
-  app: FirebaseApp;
-  database: Database;
-  storage: FirebaseStorage;
-}
+import { IFirebaseServices } from '../types/firebase';
 
 interface IFirebaseConfig {
   apiKey: string;

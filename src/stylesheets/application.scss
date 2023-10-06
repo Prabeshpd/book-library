@@ -2,7 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-.home-page {
-  padding: 2rem;
-  text-decoration-color: white;
-}
+@import '_variables.scss';
+@import 'base/index.scss';
+@import 'components/index.scss';
+@import 'layouts/index.scss';
