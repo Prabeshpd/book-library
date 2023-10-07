@@ -37,6 +37,7 @@
       "@/reducers/*": ["./src/reducers/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "src/lib/requestManager"],
-  "exclude": ["node_modules"]
+  "types": ["node", "jest", "@testing-library/jest-dom"],
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["cypress.config.ts", "cypress", "node_modules"]
 }
