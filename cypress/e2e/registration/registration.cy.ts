@@ -24,7 +24,7 @@ describe('Register', () => {
       const [name, email, password] = ['default User', 'defaultUser@gmail.com', 'password'];
       cy.register({ name, email, password });
 
-      cy.visit('register');
+      cy.visit('/register');
       cy.findByTestId(REGISTRATION_SELECTOR.inputName).type(name);
       cy.findByTestId(REGISTRATION_SELECTOR.inputEmail).type(email);
       cy.findByTestId(REGISTRATION_SELECTOR.inputPassword).type(password);
