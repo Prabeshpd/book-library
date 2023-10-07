@@ -4,11 +4,11 @@
     "outDir": "dist",
     "module": "esnext",
     "target": "es5",
+    "jsx": "react-jsx",
     "downlevelIteration": true,
     "lib": ["es6", "dom", "es2017", "es2019"],
     "sourceMap": true,
     "allowJs": true,
-    "jsx": "react",
     "moduleResolution": "node",
     "rootDir": "",
     "ignoreDeprecations": "5.0",
@@ -17,12 +17,27 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
+    "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@/components/*": ["./src/components/*"],
+      "@/hooks/*": ["./src/hooks/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/context/*": ["./src/context/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/config/*": ["./src/config/*"],
+      "@/pages/*": ["./src/pages/*"],
+      "@/services/*": ["./src/services/*"],
+      "@/constants/*": ["./src/constants/*"],
+      "@/actions/*": ["./src/actions/*"],
+      "@/reducers/*": ["./src/reducers/*"]
+    }
   },
+  "types": ["node", "jest", "@testing-library/jest-dom"],
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["cypress.config.ts", "cypress", "node_modules"]
 }
