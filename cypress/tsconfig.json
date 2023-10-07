@@ -1,5 +1,4 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
     "target": "es5",
     "moduleResolution": "node",
@@ -9,9 +8,5 @@
     "sourceMap": false,
     "resolveJsonModule": true
   },
-  "paths": {
-    "@/*": ["../src/*"],
-    "@test/*": ["../test/*"]
-  },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "../cypress.config.ts", "../node_modules/cypress", "../cypress/*.ts"]
 }
