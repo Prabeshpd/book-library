@@ -49,7 +49,7 @@ export function RegistrationForm(props: InjectedProps) {
                 </label>
                 <div className="mt-2">
                   <input
-                    data-test-id="sign-up-form-name"
+                    data-test-id="register-form-name"
                     type="text"
                     className="form__input"
                     placeholder="Name"
@@ -67,7 +67,7 @@ export function RegistrationForm(props: InjectedProps) {
                 </label>
                 <div className="mt-2">
                   <input
-                    data-test-id="sign-up-form-email"
+                    data-test-id="register-form-email"
                     type="email"
                     className="form__input"
                     placeholder="email"
@@ -85,7 +85,7 @@ export function RegistrationForm(props: InjectedProps) {
                 </label>
                 <div className="mt-2">
                   <input
-                    data-test-id="sign-up-form-password"
+                    data-test-id="register-form-password"
                     type="password"
                     className="form__input"
                     placeholder="password"
@@ -129,7 +129,7 @@ export function RegistrationForm(props: InjectedProps) {
                 <button
                   type="submit"
                   name="submit"
-                  data-test-id="sign-up-form-submit"
+                  data-test-id="register-form-submit"
                   disabled={isSubmitting}
                   value="Submit"
                   className="button button--primary"
