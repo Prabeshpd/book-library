@@ -3,7 +3,7 @@ import { createAction } from 'redux-actions';
 import * as authService from '@/services/auth';
 import { Action, ActionWithError, ActionWithPayload } from '@/types/actions';
 import { Error, AxiosError } from '@/types/error';
-import { LoginResponse } from '@/types/login';
+import { LoginResponse } from '@/types/auth';
 
 export const LOGIN_USER = 'LOGIN_USER';
 export type LOGIN_USER = typeof LOGIN_USER;
