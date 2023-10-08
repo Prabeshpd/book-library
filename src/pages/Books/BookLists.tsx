@@ -34,8 +34,8 @@ const BookList = (props: BookListProps) => {
   };
 
   return (
-    <section className="list-search-result">
-      <header className="list-search-result__header">
+    <section className="list-books">
+      <header className="list-books__header">
         <FilterForm onApplyFilter={onApplyFilter} onResetFilter={resetFilter} />
       </header>
       <table className="table">
