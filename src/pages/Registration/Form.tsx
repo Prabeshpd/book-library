@@ -3,7 +3,7 @@ import ClipLoader from 'react-spinners/ClipLoader';
 
 import FileUploader from '@/components/FileUploader/FileUploader';
 import { useFirebaseStorage } from '@/hooks/useFirebaseStorage';
-import { RegisterPayload } from '@/types/users';
+import { RegisterPayload } from '@/types/auth';
 
 import RegistrationSchema from './schema';
 

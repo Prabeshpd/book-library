@@ -4,7 +4,7 @@ import RegistrationForm from './Form';
 
 import toast from '@/lib/toast';
 import { createUser } from '@/services/users';
-import { RegisterPayload } from '@/types/users';
+import { RegisterPayload } from '@/types/auth';
 import { useUserFirebaseDatabase } from '@/hooks/useFirebaseDatabase';
 
 const Register = () => {

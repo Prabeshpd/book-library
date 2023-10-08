@@ -38,6 +38,6 @@
     }
   },
   "types": ["node", "jest", "@testing-library/jest-dom"],
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src/pages/Books/BookLists.tsx"],
   "exclude": ["cypress.config.ts", "cypress", "node_modules"]
 }

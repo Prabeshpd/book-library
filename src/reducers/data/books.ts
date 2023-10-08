@@ -5,9 +5,9 @@ import { FETCH_BOOKS_FULFILLED } from '@/actions/books';
 export const INITIAL_STATE: BookState = {
   books: [],
   meta: {
-    perPage: 0,
+    limit: 0,
     currentPage: 0,
-    totalCount: 0,
+    totalCounts: 0,
   },
 };
 

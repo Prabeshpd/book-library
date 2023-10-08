@@ -1,12 +1,12 @@
 import { Formik } from 'formik';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { LoginPayload } from '@/types/users';
+import { LoginRequest } from '@/types/auth';
 
 import loginSchema from './schema';
 
 interface InjectedProps {
-  handleFormSubmit: (payload: LoginPayload) => void;
+  handleFormSubmit: (payload: LoginRequest) => void;
 }
 
 export function Login(props: InjectedProps) {
