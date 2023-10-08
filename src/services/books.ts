@@ -1,7 +1,7 @@
 import pinterpolate from 'pinterpolate';
 
 import config from '@/config/config';
-import { isEmpty } from '@/helpers/object';
+import { isEmpty, filterNotNullValues } from '@/helpers/object';
 import http from '@/lib/requestManager/requestManager';
 import * as qs from '@/lib/queryString';
 import { QueryParams } from '@/types/query';
@@ -11,7 +11,8 @@ export async function fetchBooks(queryParams: QueryParams) {
   let queryString = qs.stringify(paginationQueryParams);
 
   if (!isEmpty(filterQueryParams)) {
-    queryString += `&${qs.stringify(filterQueryParams)}`;
+    const filterParams = filterNotNullValues(filterQueryParams);
+    queryString += `&${qs.stringify(filterParams, { hasPrefix: false })}`;
   }
 
   if (!isEmpty(sortQueryParams)) {
@@ -34,7 +35,7 @@ export async function fetchSearchDetail(id: string) {
 const formatDataForReducer = (data: any[]) => {
   return {
     data,
-    meta: {
+    metadata: {
       limit: 10,
       totalCounts: 15,
       currentPage: 1,

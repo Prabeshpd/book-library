@@ -26,7 +26,9 @@ function PaginationUnit(paginationUnitProps: PaginationUnitProps) {
         onClick={() => {
           paginationUnitProps.onClick(paginationUnitProps.keyIndex);
         }}
-        className={`pagination__button ${paginationUnitProps.state === 'active' ? 'pagination__button--active' : ''}`}
+        className={`pagination-navigation__button ${
+          paginationUnitProps.state === 'active' ? 'pagination-navigation__button--active' : ''
+        }`}
       >
         {paginationUnitProps.text}
       </button>

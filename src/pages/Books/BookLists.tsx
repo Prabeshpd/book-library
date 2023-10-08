@@ -90,7 +90,6 @@ const BookList = (props: BookListProps) => {
 };
 
 const mapStateToProps = (state: AppState) => {
-  console.log({ state });
   return {
     books: state.data.books.books,
     meta: state.data.books.meta,

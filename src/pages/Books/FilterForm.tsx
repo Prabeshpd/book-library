@@ -13,14 +13,14 @@ interface FilterFormProps {
 
 interface FilterFormValues {
   title: string;
-  categories: { value: Categories; label: string } | null;
+  category: { value: Categories; label: string } | null;
 }
 
 const FilterForm = (props: FilterFormProps) => {
   const { onApplyFilter, onResetFilter } = props;
 
   const initialValues: FilterFormValues = {
-    categories: null,
+    category: null,
     title: '',
   };
 
@@ -33,7 +33,7 @@ const FilterForm = (props: FilterFormProps) => {
       onSubmit={async (values) => {
         const payload = {
           title: values.title.trim(),
-          categories: values.categories?.value,
+          category: values.category?.value,
         };
 
         onApplyFilter(payload);
@@ -47,10 +47,10 @@ const FilterForm = (props: FilterFormProps) => {
             aria-label="Search Scope"
             className="react-select"
             classNamePrefix="react-select"
-            key={values.categories?.value}
-            value={CATEGORIES_OPTIONS.find((option) => option.value === values.categories?.value)}
+            key={values.category?.value}
+            value={CATEGORIES_OPTIONS.find((option) => option.value === values.category?.value)}
             options={CATEGORIES_OPTIONS}
-            onChange={(selectedOption) => setFieldValue('categories', selectedOption)}
+            onChange={(selectedOption) => setFieldValue('category', selectedOption)}
             isClearable={true}
           />
           <label htmlFor="table-search" className="sr-only">
