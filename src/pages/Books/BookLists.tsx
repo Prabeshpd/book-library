@@ -66,9 +66,10 @@ const BookList = (props: BookListProps) => {
                   }}
                 >
                   <td headers="keyword-column">{book.title}</td>
-                  <td headers="total-links-count-column">{book.description || 0}</td>
-                  <td headers="status-column"></td>
-                  <td headers="search-engine-column">{book.burrowedNumber || ''}</td>
+                  <td headers="total-links-count-column">{book.description}</td>
+                  <td headers="status-column">{book.category}</td>
+                  <td headers="search-engine-column">{book.burrowedNumber}</td>
+                  <td headers="search-engine-column">{book.addedAt}</td>
                 </tr>
               );
             })}
@@ -89,6 +90,7 @@ const BookList = (props: BookListProps) => {
 };
 
 const mapStateToProps = (state: AppState) => {
+  console.log({ state });
   return {
     books: state.data.books.books,
     meta: state.data.books.meta,

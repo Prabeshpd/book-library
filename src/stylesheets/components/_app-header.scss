@@ -2,7 +2,7 @@
   font-weight: 500;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  background-color: $background-color;
+  background-color: #1f2937;
 
   &__navigation {
     display: flex;
@@ -27,7 +27,7 @@
     display: flex;
     align-items: center;
     padding-right: 0.5rem;
-    color: map-get($color-white, 'primary');
+    color: #ffffff;
   }
 
   &__link {
@@ -41,8 +41,8 @@
       @apply hover:text-white;
 
       &--active {
-        color: map-get($color-white, 'primary');
-        background-color: map-get($color-black, 'primary');
+        color: #ffffff;
+        background-color: #111827;
       }
     }
   }

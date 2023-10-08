@@ -14,7 +14,7 @@ function PrivateRouteOutlet(props: StatePropsInterface) {
 
 const mapStateToProps = (state: AppState) => {
   return {
-    isLoggedIn: state.data.user.isLoggedIn,
+    isLoggedIn: state.data.users.isLoggedIn,
   };
 };
 

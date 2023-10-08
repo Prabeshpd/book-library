@@ -1,9 +1,9 @@
 import Books from './books';
-import User from './users';
+import Users from './users';
 
 interface UI {
+  readonly users: Users;
   readonly books: Books;
-  readonly user: User;
 }
 
 export default UI;
