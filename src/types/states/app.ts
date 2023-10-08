@@ -1,6 +1,8 @@
-import DataState from './data';
+import DataState from './data/data';
+import UIState from './ui/ui';
 
 interface AppState {
+  readonly ui: UIState;
   readonly data: DataState;
 }
 
