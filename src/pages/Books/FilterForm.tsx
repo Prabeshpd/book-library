@@ -40,10 +40,10 @@ const FilterForm = (props: FilterFormProps) => {
       }}
     >
       {({ handleChange, handleSubmit, isSubmitting, setFieldValue, values, handleReset }) => (
-        <form className="form list-search-result-form" onSubmit={handleSubmit} onReset={handleReset}>
+        <form className="form list-books-form" onSubmit={handleSubmit} onReset={handleReset}>
           <Select
             name="categories"
-            id="list-search-result-form-scope"
+            id="list-books-form-category"
             aria-label="Search Scope"
             className="react-select"
             classNamePrefix="react-select"
@@ -59,14 +59,14 @@ const FilterForm = (props: FilterFormProps) => {
           <input
             onChange={handleChange}
             type="text"
-            data-test-id="list-search-result-form-input"
+            data-test-id="list-books-form-input"
             id="table-search"
             name="queryInput"
-            className="list-search-result__input"
+            className="list-books__input"
             placeholder="Search for keyword or url"
           />
           <button
-            data-test-id="list-search-result-form-submit"
+            data-test-id="list-books-form-submit"
             className="button button--primary"
             disabled={isSubmitting}
             type="submit"
@@ -75,10 +75,10 @@ const FilterForm = (props: FilterFormProps) => {
             Filter
           </button>
           <button
-            data-test-id="list-search-result-form-reset"
+            data-test-id="list-books-form-reset"
             type="reset"
             name="reset"
-            className="button button--secondary list-search-result-form__button--reset"
+            className="button button--secondary list-books-form__button--reset"
           >
             Reset
           </button>
