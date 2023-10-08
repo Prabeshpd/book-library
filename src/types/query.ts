@@ -1,6 +1,8 @@
+import { Categories } from '@/constants/enums';
+
 export interface BooksFilter {
   queryInput?: string | null;
-  category?: string;
+  category?: Categories;
 }
 
 type Sort = 'Ascending' | 'Descending';

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import Profile from './Profile/Profile';
-import Books from './Books/Books';
+import Books from './Books/BookLists';
 
 function AppRouter() {
   return (

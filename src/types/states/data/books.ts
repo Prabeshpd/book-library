@@ -12,10 +12,9 @@ interface Books {
   books: Book[];
 
   readonly meta: {
+    readonly limit: number;
+    readonly totalCounts: number;
     readonly currentPage: number;
-    // todo: rename to pageLimit
-    readonly perPage: number;
-    readonly totalCount: number;
   };
 }
 
