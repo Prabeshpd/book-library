@@ -16,7 +16,7 @@
     display: block;
     font-size: 0.875rem;
     font-weight: 500;
-    color: map-get($color-black, 'primary');
+    color: #111827;
     line-height: 1.5rem;
   }
 
@@ -27,7 +27,7 @@
     padding-bottom: 0.375rem;
     border-radius: 0.375rem;
     width: 100%;
-    color: map-get($color-black, 'primary');
+    color: #111827;
     @layer components {
       @apply shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600;
     }

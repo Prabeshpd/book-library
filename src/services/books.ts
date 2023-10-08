@@ -21,7 +21,7 @@ export async function fetchBooks(queryParams: QueryParams) {
   const url = config.endpoints.fetchBooks + queryString;
   const { data } = await http.get(url);
 
-  return data;
+  return formatDataForReducer(data);
 }
 
 export async function fetchSearchDetail(id: string) {
@@ -30,3 +30,14 @@ export async function fetchSearchDetail(id: string) {
 
   return data;
 }
+
+const formatDataForReducer = (data: any[]) => {
+  return {
+    data,
+    meta: {
+      limit: 10,
+      totalCounts: 15,
+      currentPage: 1,
+    },
+  };
+};

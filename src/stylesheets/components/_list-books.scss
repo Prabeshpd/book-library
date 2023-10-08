@@ -11,13 +11,11 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: {
-      bottom: 1rem;
-      top: 0.5rem;
-      left: 0.5rem;
-      right: 0.5rem;
-    }
-    background-color: map-get($color-black, 'primary');
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: #111827;
   }
 
   &__input {
@@ -31,8 +29,8 @@
     border-radius: 0.5rem;
     border-width: 1px;
     border-color: #4b5563;
-    background-color: map-get($color-black, 'secondary');
-    color: map-get($color-white, 'primary');
+    background-color: #374151;
+    color: #ffffff;
 
     @layer components {
       @apply focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500;

@@ -2,9 +2,9 @@
   padding: 2rem;
   text-align: center;
   width: 100%;
-  background-color: $background-color;
+  background-color: #1f2937;
   border-width: 1px;
-  border-color: map-get($color-black, 'secondary');
+  border-color: #374151;
 
   @layer components {
     @apply shadow;
@@ -15,14 +15,14 @@
     font-weight: 700;
     font-size: 1.875rem;
     line-height: 2.25rem;
-    color: map-get($color-white, 'primary');
+    color: #ffffff;
   }
 
   &__info {
     margin-bottom: 1.25rem;
     font-size: 1.125rem;
     line-height: 1.75rem;
-    color: map-get($color-white, 'secondary');
+    color: #9ca3af;
   }
 
   &__button {

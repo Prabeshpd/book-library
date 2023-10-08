@@ -3,10 +3,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: map-get($color-black, 'secondary');
+  background-color: #374151;
 
   &__info {
-    color: map-get($color-white, 'secondary');
+    color: #9ca3af;
     font-weight: 400;
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -33,11 +33,11 @@
     border-width: 0.05rem;
     line-height: 1.25;
     background-color: #1f2937;
-    border-color: map-get($color-black, 'secondary');
-    color: map-get($color-white, 'primary');
+    border-color: #374151;
+    color: #ffffff;
 
     &--active {
-      background-color: map-get($color-black, 'secondary');
+      background-color: #374151;
     }
   }
 }

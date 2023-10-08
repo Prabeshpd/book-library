@@ -1,25 +1,24 @@
 .react-select {
   margin: 1rem;
   min-width: 10rem;
-  background-color: map-get($color-black, 'secondary');
-  color: map-get($color-white, 'primary');
+  background-color: #374151;
+  color: #ffffff;
   cursor: pointer;
 
-  // need two attributes to override the specific custom style
   & &__control {
-    background-color: map-get($color-black, 'secondary');
-    color: map-get($color-white, 'primary');
+    background-color: #374151;
+    color: #ffffff;
   }
 
   & &__menu {
-    background-color: map-get($color-black, 'secondary');
+    background-color: #374151;
   }
 
   & &__option:hover {
-    background-color: map-get($color-white, 'secondary');
+    background-color: #9ca3af;
   }
 
   & &__single-value {
-    color: map-get($color-white, 'primary');
+    color: #ffffff;
   }
 }

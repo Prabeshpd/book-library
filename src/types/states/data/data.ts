@@ -1,8 +1,8 @@
-import User from './users';
+import Users from './users';
 import Books from './books';
 
 interface DataState {
-  readonly user: User;
+  readonly users: Users;
   readonly books: Books;
 }
 

@@ -55,8 +55,8 @@ const BookDetail = (props: BookDetailProps) => {
 
 const mapStateToProps = (state: AppState) => {
   return {
-    user: state.data.user.user,
-    isLoadingFetchUser: state.ui.user.isLoadingFetchUser,
+    user: state.data.users.user,
+    isLoadingFetchUser: state.ui.users.isLoadingFetchUser,
   };
 };
 

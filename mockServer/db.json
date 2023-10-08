@@ -1,3 +1,37 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "prabesh1995nepalktm@gmail.com",
+      "password": "$2a$10$lVZbZxkUO/lG2eeFtUaKMOrSW34zLcymV2FSPElLpbZj9w9vdtGRa",
+      "name": "Prabesh Dahal",
+      "imageUrl": "",
+      "id": "0ee31e73-cd1c-4bde-b73e-d9d16e1ea06c"
+    }
+  ],
+  "books": [
+    {
+      "title": "War And Peace",
+      "description": "",
+      "addedAt": "2021-02-24",
+      "imageUrl": "",
+      "burrowedNumber": 2,
+      "category": "nonFiction"
+    },
+    {
+      "title": "Rich Dad Poor Dad",
+      "description": "",
+      "addedAt": "2021-02-23",
+      "imageUrl": "",
+      "burrowedNumber": 3,
+      "category": "fiction"
+    },
+    {
+      "title": "Steve Jobs",
+      "description": "",
+      "addedAt": "2021-01-23",
+      "imageUrl": "",
+      "burrowedNumber": 5,
+      "category": "biography"
+    }
+  ]
 }
