@@ -9,3 +9,10 @@ export async function createUser(payload: RegisterPayload) {
 
   return data;
 }
+
+export async function fetchUser() {
+  const url = config.endpoints.fetchUser;
+  const { data } = await http.get(url);
+
+  return data;
+}

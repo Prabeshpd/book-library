@@ -1,4 +1,4 @@
-import User from './user';
+import User from './users';
 import Books from './books';
 
 interface DataState {
