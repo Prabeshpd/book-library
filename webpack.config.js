@@ -36,6 +36,7 @@ module.exports = {
       '@/constants': path.resolve(__dirname, './src/constants/'),
       '@/actions': path.resolve(__dirname, './src/actions/'),
       '@/reducers': path.resolve(__dirname, './src/reducers/'),
+      '@/helpers': path.resolve(__dirname, './src/helpers/'),
     },
   },
   module: {

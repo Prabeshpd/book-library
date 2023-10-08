@@ -1,14 +1,13 @@
 import { useReducer, useEffect } from 'react';
 
 import { PAGINATION_CURRENT_PAGE, PAGINATION_LIMIT } from '@/constants/constants';
-
 import toast from '@/lib/toast';
-import { BooksFilter, BooksSort, PageQueryParams } from '@/types/query';
+import { BooksFilter, BooksSort, QueryParams } from '@/types/query';
 
 interface tableState {
   pageNumber: 1;
-  filterParams: any;
-  sortParams: any;
+  filterParams: BooksFilter;
+  sortParams: BooksSort;
 }
 
 interface Action<T, P = {}> {
@@ -31,7 +30,7 @@ type setSortParams = Action<SET_SORT_PARAMS, BooksSort>;
 type tableActions = setPageNumber | setFilterParams | setSortParams;
 
 interface Actions {
-  fetchBooks: (paginationParams: PageQueryParams, filterQueryParams: BooksFilter) => void;
+  fetchBooks: (queryParams: QueryParams) => void;
 }
 
 export function useListBooks(actions: Actions) {
@@ -47,7 +46,7 @@ export function useListBooks(actions: Actions) {
         case SET_FILTER_PARAMS:
           return { ...state, filterParams: action.payload };
 
-        case 'SET_PAGE_NUMBER':
+        case SET_SORT_PARAMS:
           return { ...state, sortParams: action.payload };
 
         default:
@@ -61,37 +60,42 @@ export function useListBooks(actions: Actions) {
     },
   );
 
-  const getQueryParams = () => ({
-    maxRows: PAGINATION_LIMIT,
-    currentPage: state.pageNumber,
-  });
+  const getQueryParams = () => {
+    const { filterParams, sortParams } = state;
 
-  const listBooks = async (paginationParams: PageQueryParams, filterQueryParams: BooksFilter = {}) => {
+    return {
+      paginationQueryParams: { _limit: PAGINATION_LIMIT, _page: state.pageNumber },
+      filterQueryParams: filterParams,
+      sortQueryParams: sortParams,
+    };
+  };
+
+  const listBooks = async (queryParams: QueryParams) => {
     try {
-      await fetchBooks(paginationParams, filterQueryParams);
+      await fetchBooks(queryParams);
     } catch (err: any) {
       toast('Unable to fetch the list of keywords.', 'error');
     }
   };
 
   const onApplyFilter = async (filterParameters: BooksFilter) => {
-    const paginationParams = getQueryParams();
+    const queryParams = getQueryParams();
     dispatch({ type: SET_FILTER_PARAMS, payload: filterParameters });
 
-    await listBooks(paginationParams, filterParameters);
+    await listBooks(queryParams);
   };
 
   const resetFilter = async () => {
-    const paginationParams = getQueryParams();
+    const queryParams = getQueryParams();
     dispatch({ type: SET_FILTER_PARAMS, payload: {} });
 
-    await listBooks(paginationParams, state.filterParams);
+    await listBooks(queryParams);
   };
 
   useEffect(() => {
-    const paginationParams = getQueryParams();
+    const queryParams = getQueryParams();
 
-    listBooks(paginationParams, state.filterParams);
+    listBooks(queryParams);
   }, [state.pageNumber]);
 
   return { state, dispatch, resetFilter, onApplyFilter };

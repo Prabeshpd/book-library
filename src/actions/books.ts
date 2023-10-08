@@ -3,7 +3,7 @@ import { createAction } from 'redux-actions';
 import { Books } from '@/types/books';
 import { Error, AxiosError } from '@/types/error';
 import { PaginationMeta } from '@/types/query';
-import * as searchService from '@/services/books';
+import * as booksService from '@/services/books';
 import { Action, ActionWithError, ActionWithPayload } from '@/types/actions';
 
 export const FETCH_BOOKS = 'FETCH_BOOKS';
@@ -24,4 +24,4 @@ export type FetchBooksRejected = ActionWithError<FETCH_BOOKS_REJECTED, AxiosErro
 
 export type FetchBooksActions = FetchBooksPending | FetchBooksFulfilled | FetchBooksRejected;
 
-export const fetchBooks = createAction(FETCH_BOOKS, searchService.getResults);
+export const fetchBooks = createAction(FETCH_BOOKS, booksService.fetchBooks);

@@ -12,7 +12,7 @@ interface FilterFormProps {
 }
 
 interface FilterFormValues {
-  queryInput: string;
+  title: string;
   categories: { value: Categories; label: string } | null;
 }
 
@@ -21,7 +21,7 @@ const FilterForm = (props: FilterFormProps) => {
 
   const initialValues: FilterFormValues = {
     categories: null,
-    queryInput: '',
+    title: '',
   };
 
   return (
@@ -32,7 +32,7 @@ const FilterForm = (props: FilterFormProps) => {
       }}
       onSubmit={async (values) => {
         const payload = {
-          queryInput: values.queryInput.trim(),
+          title: values.title.trim(),
           categories: values.categories?.value,
         };
 
@@ -61,9 +61,9 @@ const FilterForm = (props: FilterFormProps) => {
             type="text"
             data-test-id="list-books-form-input"
             id="table-search"
-            name="queryInput"
+            name="title"
             className="list-books__input"
-            placeholder="Search for keyword or url"
+            placeholder="Search for title"
           />
           <button
             data-test-id="list-books-form-submit"
