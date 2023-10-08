@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader';
+import { useNavigate } from 'react-router-dom';
 
 import { fetchBooks } from '@/actions/books';
 
@@ -27,10 +28,16 @@ type BookListProps = StatePropsInterface & DispatchPropsInterface;
 const BookList = (props: BookListProps) => {
   const { books, fetchBooks, isLoadingFetchBooks, meta } = props;
 
+  const navigate = useNavigate();
   const { onApplyFilter, resetFilter, state: _state, dispatch } = useListBooks({ fetchBooks });
 
   const setPageNumber = (pageNumber: number) => {
     dispatch({ type: 'SET_PAGE_NUMBER', payload: pageNumber });
+  };
+
+  const visitBookDetail = (id: string) => {
+    let path = `/app/results/${id}`;
+    navigate(path);
   };
 
   return (
@@ -52,7 +59,12 @@ const BookList = (props: BookListProps) => {
           <tbody data-test-id="search-table-body" className="table__body">
             {books.map((book) => {
               return (
-                <tr key={book.id}>
+                <tr
+                  key={book.id}
+                  onClick={() => {
+                    visitBookDetail(book.id);
+                  }}
+                >
                   <td headers="keyword-column">{book.title}</td>
                   <td headers="total-links-count-column">{book.description || 0}</td>
                   <td headers="status-column"></td>
