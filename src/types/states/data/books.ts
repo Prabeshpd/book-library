@@ -10,7 +10,7 @@ interface Book {
 
 interface Books {
   books: Book[];
-
+  bookDetail: Book;
   readonly meta: {
     readonly limit: number;
     readonly totalCounts: number;

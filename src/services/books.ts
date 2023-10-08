@@ -1,3 +1,5 @@
+import pinterpolate from 'pinterpolate';
+
 import config from '@/config/config';
 import { isEmpty } from '@/helpers/object';
 import http from '@/lib/requestManager/requestManager';
@@ -17,6 +19,13 @@ export async function fetchBooks(queryParams: QueryParams) {
   }
 
   const url = config.endpoints.fetchBooks + queryString;
+  const { data } = await http.get(url);
+
+  return data;
+}
+
+export async function fetchSearchDetail(id: number) {
+  const url = pinterpolate(config.endpoints.fetchBookDetail, { id });
   const { data } = await http.get(url);
 
   return data;

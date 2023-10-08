@@ -1,11 +1,18 @@
 import { BookActions } from '@/actions/index';
-import { FETCH_BOOKS_FULFILLED, FETCH_BOOKS_PENDING, FETCH_BOOKS_REJECTED } from '@/actions/books';
+import {
+  FETCH_BOOKS_FULFILLED,
+  FETCH_BOOKS_PENDING,
+  FETCH_BOOKS_REJECTED,
+  FETCH_BOOK_DETAIL_FULFILLED,
+  FETCH_BOOK_DETAIL_PENDING,
+  FETCH_BOOK_DETAIL_REJECTED,
+} from '@/actions/books';
 
 import BookState from '@/types/states/ui/books';
 
 export const INITIAL_STATE: BookState = {
-  isFetchBooksFailed: false,
   isLoadingFetchBooks: false,
+  isLoadingFetchBookDetail: false,
 };
 
 export default function login(state: BookState = INITIAL_STATE, action: BookActions): BookState {
@@ -22,6 +29,16 @@ export default function login(state: BookState = INITIAL_STATE, action: BookActi
         ...state,
         isLoadingFetchBooks: false,
       };
+
+    case FETCH_BOOK_DETAIL_PENDING:
+      return {
+        ...state,
+        isLoadingFetchBookDetail: true,
+      };
+
+    case FETCH_BOOK_DETAIL_FULFILLED:
+    case FETCH_BOOK_DETAIL_REJECTED:
+      return { ...state, isLoadingFetchBookDetail: false };
 
     default:
       return state;
