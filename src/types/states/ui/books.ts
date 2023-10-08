@@ -1,6 +1,6 @@
 interface Books {
-  readonly isFetchBooksFailed: boolean;
   readonly isLoadingFetchBooks: boolean;
+  readonly isLoadingFetchBookDetail: boolean;
 }
 
 export default Books;

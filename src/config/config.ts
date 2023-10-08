@@ -6,6 +6,7 @@ export interface Config {
     login: string;
     createUser: string;
     fetchBooks: string;
+    fetchBookDetail: string;
   };
 }
 
@@ -22,6 +23,7 @@ const config: Config = {
 
     // books
     fetchBooks: '/books',
+    fetchBookDetail: '/books/:id',
   },
 };
 
