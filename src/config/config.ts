@@ -5,6 +5,7 @@ export interface Config {
   endpoints: {
     login: string;
     createUser: string;
+    fetchBooks: string;
   };
 }
 
@@ -13,11 +14,14 @@ const config: Config = {
   env: process.env.REACT_APP_ENV || 'dev',
   baseURI: process.env.REACT_BASE_API_URL || 'http://localhost:3000',
   endpoints: {
-    //login
+    // login
     login: '/login',
 
-    //User
+    // user
     createUser: '/users',
+
+    // books
+    fetchBooks: '/books',
   },
 };
 
