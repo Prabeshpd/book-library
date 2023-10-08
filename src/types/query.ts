@@ -1,15 +1,15 @@
 import { Categories } from '@/constants/enums';
 
 export interface BooksFilter {
-  queryInput?: string | null;
+  title?: string;
   category?: Categories;
 }
 
 type Sort = 'Ascending' | 'Descending';
 
 export interface BooksSort {
-  addedAt: Sort;
-  burrowedNumber: Sort;
+  addedAt?: Sort;
+  burrowedNumber?: Sort;
 }
 
 export interface PaginationMeta {
@@ -19,6 +19,12 @@ export interface PaginationMeta {
 }
 
 export interface PageQueryParams {
-  currentPage: number;
-  maxRows: Number;
+  _page: number;
+  _limit: Number;
+}
+
+export interface QueryParams {
+  paginationQueryParams: PageQueryParams;
+  filterQueryParams: BooksFilter;
+  sortQueryParams: BooksSort;
 }

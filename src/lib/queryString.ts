@@ -13,3 +13,10 @@ export function stringify(queryParams: any, prefix: string = '?'): string {
 
   return `${prefix}${queryString}`;
 }
+
+export function stringifySortParams(sortParams: any) {
+  return qs.stringify(
+    { _sort: Object.keys(sortParams), _order: Object.values(sortParams) },
+    { arrayFormat: 'comma', encode: false },
+  );
+}

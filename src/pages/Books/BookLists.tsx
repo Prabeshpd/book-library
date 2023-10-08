@@ -5,7 +5,7 @@ import { fetchBooks } from '@/actions/books';
 
 import AppState from '@/types/states/app';
 import { Books } from '@/types/books';
-import { PageQueryParams, PaginationMeta } from '@/types/query';
+import { QueryParams, PaginationMeta } from '@/types/query';
 
 import Pagination from '@/components/Pagination/Pagination';
 
@@ -19,7 +19,7 @@ interface StatePropsInterface {
 }
 
 interface DispatchPropsInterface {
-  fetchBooks: (queryParams: PageQueryParams) => void;
+  fetchBooks: (queryParams: QueryParams) => void;
 }
 
 type BookListProps = StatePropsInterface & DispatchPropsInterface;
@@ -44,8 +44,8 @@ const BookList = (props: BookListProps) => {
             <th>Title</th>
             <th>Description</th>
             <th>Category</th>
-            <th>Burrowed Times</th>
-            <th>Added Date</th>
+            <th>Burrowed Number</th>
+            <th>Added At</th>
           </tr>
         </thead>
         {(!isLoadingFetchBooks && (

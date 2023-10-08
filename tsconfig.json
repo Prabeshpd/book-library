@@ -34,7 +34,8 @@
       "@/services/*": ["./src/services/*"],
       "@/constants/*": ["./src/constants/*"],
       "@/actions/*": ["./src/actions/*"],
-      "@/reducers/*": ["./src/reducers/*"]
+      "@/reducers/*": ["./src/reducers/*"],
+      "@/helpers/*": ["./src/helpers/*"]
     }
   },
   "types": ["node", "jest", "@testing-library/jest-dom"],
