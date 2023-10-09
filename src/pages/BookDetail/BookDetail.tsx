@@ -4,20 +4,23 @@ import { useParams } from 'react-router-dom';
 
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { fetchBookDetail } from '@/actions/books';
+import { fetchBookDetail, borrowBooks } from '@/actions/books';
 
 import toast from '@/lib/toast';
 
 import AppState from '@/types/states/app';
 import { Books } from '@/types/books';
+import User from '@/types/user';
 
 interface StatePropsInterface {
   bookDetail: Books;
   isLoadingFetchBookDetail: boolean;
+  user: User;
 }
 
 interface DispatchPropsInterface {
   fetchBookDetail: (id: string) => void;
+  borrowBooks: (userId: string, books: string[]) => void;
 }
 
 type BookDetailProps = StatePropsInterface & DispatchPropsInterface;
@@ -25,7 +28,7 @@ type BookDetailProps = StatePropsInterface & DispatchPropsInterface;
 const BookDetail = (props: BookDetailProps) => {
   const { id } = useParams();
 
-  const { fetchBookDetail, isLoadingFetchBookDetail, bookDetail } = props;
+  const { fetchBookDetail, isLoadingFetchBookDetail, bookDetail, user, borrowBooks } = props;
 
   React.useEffect(() => {
     async function getBookDetail() {
@@ -40,6 +43,18 @@ const BookDetail = (props: BookDetailProps) => {
 
     getBookDetail();
   }, [id]);
+
+  const borrowBook = async () => {
+    if (!id) return;
+
+    try {
+      const borrowedBooks = [...user.books, id];
+
+      await borrowBooks(user.id, borrowedBooks);
+    } catch (err) {
+      toast('The book could not be borrowed. Sorry, for the inconvenience', 'error');
+    }
+  };
 
   return (
     (!isLoadingFetchBookDetail && (
@@ -62,7 +77,11 @@ const BookDetail = (props: BookDetailProps) => {
             <p className="detail-book__info" data-test-id="detail-book-search-engine">
               Added Date: {bookDetail?.addedAt}
             </p>
-            <button data-test-id="detail-book-download" className="button button--primary detail-book__button">
+            <button
+              onClick={borrowBook}
+              data-test-id="detail-book-download"
+              className="button button--primary detail-book__button"
+            >
               Borrow Book
             </button>
           </div>
@@ -75,12 +94,15 @@ const BookDetail = (props: BookDetailProps) => {
 const mapStateToProps = (state: AppState) => {
   return {
     bookDetail: state.data.books.bookDetail,
+    // No need to handle this in actual environment communicating to backend
+    user: state.data.users.user,
     isLoadingFetchBookDetail: state.ui.books.isLoadingFetchBookDetail,
   };
 };
 
 const mapDispatchToProps = {
   fetchBookDetail,
+  borrowBooks,
 };
 
 export default connect<StatePropsInterface, DispatchPropsInterface>(mapStateToProps, mapDispatchToProps)(BookDetail);

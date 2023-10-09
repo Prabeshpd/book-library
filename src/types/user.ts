@@ -1,8 +1,8 @@
 interface User {
-  id: number;
+  id: string;
   email: string;
   name: string;
-  book?: string[];
+  books: string[];
 }
 
 export default User;

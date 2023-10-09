@@ -12,7 +12,7 @@ export const INITIAL_STATE: User = {
   user: {
     email: '',
     name: '',
-    id: 0,
+    id: '',
     books: [],
   },
 };
