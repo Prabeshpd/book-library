@@ -3,6 +3,10 @@
   overflow: hidden;
   width: 100%;
 
+  @layer components {
+    @apply shadow-lg;
+  }
+
   &__header {
     display: block;
     margin-bottom: 1rem;
@@ -28,6 +32,11 @@
     text-decoration-color: #ffffff;
     line-height: 1.5rem;
     font-size: 0.875rem;
+
+    @media (max-width: 480px) {
+      font-size: 0.5rem;
+      line-height: 0.5rem;
+    }
   }
 
   &__input {

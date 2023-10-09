@@ -31,7 +31,7 @@ export function Login(props: InjectedProps) {
         <form className="form" onSubmit={handleSubmit}>
           <div className="space-y-12">
             <div className="form__body">
-              <div className="sm:col-span-4">
+              <div className="form__element sm:col-span-4">
                 <label className="form__label" htmlFor="email">
                   Email
                 </label>
@@ -47,9 +47,9 @@ export function Login(props: InjectedProps) {
                     onBlur={handleBlur}
                   />
                 </div>
-                {errors.email && touched.email && <p>{errors.email}</p>}
+                {errors.email && touched.email && <p className="form__error">{errors.email}</p>}
               </div>
-              <div className="sm:col-span-4">
+              <div className="form__element sm:col-span-4">
                 <label className="form__label" htmlFor="password">
                   Password
                 </label>
@@ -65,14 +65,11 @@ export function Login(props: InjectedProps) {
                     onBlur={handleBlur}
                   />
                 </div>
-                {errors.password && touched.password && <p>{errors.password}</p>}
+                {errors.password && touched.password && <p className="form__error">{errors.password}</p>}
               </div>
             </div>
 
             <div className="form__footer">
-              <button type="reset" className="button button--secondary" name="reset" value="Reset">
-                Cancel
-              </button>
               {(!isSubmitting && (
                 <button
                   data-test-id="login-form-submit"
