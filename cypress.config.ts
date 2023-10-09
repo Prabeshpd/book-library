@@ -1,5 +1,4 @@
 import { defineConfig } from 'cypress';
-import resetFirebaseServices from './test/helpers/resetFirebase';
 import resetServer from './test/helpers/resetServer';
 
 export default defineConfig({
@@ -13,9 +12,6 @@ export default defineConfig({
         async resetServerDatabase() {
           return resetServer();
         },
-      });
-      on('after:run', () => {
-        resetFirebaseServices();
       });
     },
   },
