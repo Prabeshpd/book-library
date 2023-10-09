@@ -57,7 +57,6 @@ const BookDetail = (props: BookDetailProps) => {
 
   const isBookBorrowed = () => {
     const filter = bookDetail.userBooks.filter((userBook) => userBook.userId === userId);
-    console.log(filter);
 
     return filter.length !== 0;
   };

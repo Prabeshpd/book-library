@@ -44,7 +44,7 @@ const FilterForm = (props: FilterFormProps) => {
           <Select
             name="categories"
             id="list-books-form-category"
-            aria-label="Search Scope"
+            aria-label="Category"
             className="react-select"
             classNamePrefix="react-select"
             key={values.category?.value}

@@ -101,7 +101,7 @@ const BookList = (props: BookListProps) => {
           </tr>
         </thead>
         {(!isLoadingFetchBooks && (
-          <tbody data-test-id="search-table-body" className="table__body">
+          <tbody data-test-id="book-table-body" className="table__body">
             {books.map((book) => {
               return (
                 <tr
