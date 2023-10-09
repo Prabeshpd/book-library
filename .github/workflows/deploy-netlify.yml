@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - host-react
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -28,10 +29,11 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Deploy
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy to netlify
+        uses: netlify/actions/cli@master
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          repoToken: ${{ secrets.ACTION_TOKEN  }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_DIGITAL_LIBRARY_9C01D }}
-          channelId: live
-          projectId: digital-library-9c01d
+          args: deploy --dir=build --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
