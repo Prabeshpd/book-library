@@ -1,3 +1,4 @@
+import pinterpolate from 'pinterpolate';
 import config from '../config/config';
 import http from '../lib/requestManager/requestManager';
 
@@ -10,8 +11,8 @@ export async function createUser(payload: RegisterPayload) {
   return data;
 }
 
-export async function fetchUser() {
-  const url = config.endpoints.fetchUser;
+export async function fetchUser(id: string) {
+  const url = pinterpolate(config.endpoints.fetchUser, { id });
   const { data } = await http.get(url);
 
   return data;

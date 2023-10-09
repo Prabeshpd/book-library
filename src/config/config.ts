@@ -19,13 +19,11 @@ const config: Config = {
   baseURI: process.env.REACT_BASE_API_URL || 'http://localhost:3000',
   endpoints: {
     // user
-    fetchUser: '/me',
+    fetchUser: '/users/:id',
+    createUser: '/users',
 
     // login
     login: '/login',
-
-    // user
-    createUser: '/users',
 
     // books
     fetchBooks: '/books',

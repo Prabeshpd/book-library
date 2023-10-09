@@ -6,4 +6,5 @@ export interface Books {
   burrowedNumber: number;
   description: string;
   category: string;
+  userBooks: { userId: string; bookId: string }[];
 }

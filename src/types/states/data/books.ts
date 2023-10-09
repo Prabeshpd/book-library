@@ -6,6 +6,7 @@ interface Book {
   readonly burrowedNumber: number;
   readonly description: string;
   readonly category: string;
+  readonly userBooks: { userId: string; bookId: string }[];
 }
 
 interface Books {

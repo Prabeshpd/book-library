@@ -35,7 +35,8 @@
       "@/constants/*": ["./src/constants/*"],
       "@/actions/*": ["./src/actions/*"],
       "@/reducers/*": ["./src/reducers/*"],
-      "@/helpers/*": ["./src/helpers/*"]
+      "@/helpers/*": ["./src/helpers/*"],
+      "@/presenters/*": ["./src/presenters/*"]
     }
   },
   "types": ["node", "jest", "@testing-library/jest-dom"],

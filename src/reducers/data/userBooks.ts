@@ -14,6 +14,7 @@ export const INITIAL_STATE: UserBookState = {
 export default function (state: UserBookState = INITIAL_STATE, action: UserBooksActions): UserBookState {
   switch (action.type) {
     case FETCH_USER_BOOKS_FULFILLED: {
+      console.log({ action });
       return {
         ...state,
         userBooks: action.payload.data,

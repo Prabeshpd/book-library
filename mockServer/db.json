@@ -120,8 +120,19 @@
   ],
   "userBooks": [
     {
+      "id": 1,
       "userId": "0ee31e73-cd1c-4bde-b73e-d9d16e1ea06c",
       "bookId": "d21cdc54-d2be-47f1-aba6-3a128db237fe"
+    },
+    {
+      "userId": "0ee31e73-cd1c-4bde-b73e-d9d16e1ea06c",
+      "bookId": "a9b6b528-114d-49bc-a649-0c45391ef43a",
+      "id": 2
+    },
+    {
+      "userId": "0ee31e73-cd1c-4bde-b73e-d9d16e1ea06c",
+      "bookId": "4aa61773-c967-4c43-9d0c-0c3f0a15c276",
+      "id": 3
     }
   ]
 }
