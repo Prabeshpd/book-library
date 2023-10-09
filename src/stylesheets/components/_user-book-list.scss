@@ -1,0 +1,14 @@
+.user-book-list {
+  padding: 2rem;
+  text-decoration-color: white;
+  background-color: #374151;
+  width: 100%;
+
+  &__header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: large;
+  }
+}
