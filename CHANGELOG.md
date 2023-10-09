@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/Prabeshpd/book-library/compare/digital-library@1.1.0...digital-library@1.2.0) (2023-10-09)
+
+
+### Features
+
+* Add component for search result list ([59992d7](https://github.com/Prabeshpd/book-library/commit/59992d7842c33c16dbd3f2bc462307f3d9e788a7))
+
 # [1.1.0](https://github.com/Prabeshpd/book-library/compare/digital-library@1.0.0...digital-library@1.1.0) (2023-10-07)
 
 
