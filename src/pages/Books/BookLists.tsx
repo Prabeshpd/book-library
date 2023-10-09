@@ -36,7 +36,7 @@ const BookList = (props: BookListProps) => {
   };
 
   const visitBookDetail = (id: string) => {
-    let path = `/app/results/${id}`;
+    let path = `/app/book/${id}`;
     navigate(path);
   };
 
@@ -65,8 +65,13 @@ const BookList = (props: BookListProps) => {
                     visitBookDetail(book.id);
                   }}
                 >
-                  <td headers="keyword-column">{book.title}</td>
-                  <td headers="total-links-count-column">{book.description}</td>
+                  <td headers="keyword-column" className="table__column-image">
+                    <img className="w-10 h-10 rounded-full" src={book.imageUrl} alt="book Cover" />
+                    <div className="m-2">{book.title}</div>
+                  </td>
+                  <td headers="total-links-count-column">
+                    <div className="table__column-ellipsis">{book.description}</div>
+                  </td>
                   <td headers="status-column">{book.category}</td>
                   <td headers="search-engine-column">{book.burrowedNumber}</td>
                   <td headers="search-engine-column">{book.addedAt}</td>

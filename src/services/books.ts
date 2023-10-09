@@ -25,7 +25,7 @@ export async function fetchBooks(queryParams: QueryParams) {
   return formatDataForReducer(data);
 }
 
-export async function fetchSearchDetail(id: string) {
+export async function fetchBookDetail(id: string) {
   const url = pinterpolate(config.endpoints.fetchBookDetail, { id });
   const { data } = await http.get(url);
 
