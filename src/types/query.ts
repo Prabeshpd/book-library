@@ -5,7 +5,7 @@ export interface BooksFilter {
   category?: Categories;
 }
 
-type Sort = 'Ascending' | 'Descending';
+export type Sort = 'asc' | 'desc';
 
 export interface BooksSort {
   addedAt?: Sort;
