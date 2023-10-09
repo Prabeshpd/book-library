@@ -1,0 +1,14 @@
+.digital-books {
+  padding: 2rem;
+  text-decoration-color: white;
+  height: 100%;
+  background-color: #374151;
+
+  &__header {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: large;
+  }
+}

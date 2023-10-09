@@ -7,14 +7,14 @@
     padding-bottom: 0.5rem;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
-    color: map-get($color-white, 'primary');
+    color: #ffffff;
     line-height: 1.25rem;
     background-color: #4f46e5;
     border-radius: 0.375rem;
   }
 
   &--secondary {
-    text-decoration-color: map-get($color-black, 'primary');
+    text-decoration-color: #111827;
     line-height: 1.5rem;
   }
 }

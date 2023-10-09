@@ -1,5 +1,10 @@
-const Books = () => {
-  return <div></div>;
-};
+import BooksList from './BookLists';
 
-export default Books;
+export default function Books() {
+  return (
+    <div className="digital-books">
+      <header className="digital-books__header">All Books</header>
+      <BooksList />
+    </div>
+  );
+}

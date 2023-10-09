@@ -14,3 +14,10 @@ export interface LogoutResponse {
   code: number;
   message: string | null;
 }
+
+export interface RegisterPayload {
+  email: string;
+  name: string;
+  password: string;
+  imageUrl?: string;
+}

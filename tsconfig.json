@@ -34,10 +34,12 @@
       "@/services/*": ["./src/services/*"],
       "@/constants/*": ["./src/constants/*"],
       "@/actions/*": ["./src/actions/*"],
-      "@/reducers/*": ["./src/reducers/*"]
+      "@/reducers/*": ["./src/reducers/*"],
+      "@/helpers/*": ["./src/helpers/*"],
+      "@/presenters/*": ["./src/presenters/*"]
     }
   },
   "types": ["node", "jest", "@testing-library/jest-dom"],
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx", "src/pages/Books/BookLists.tsx"],
   "exclude": ["cypress.config.ts", "cypress", "node_modules"]
 }

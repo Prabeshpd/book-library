@@ -1,0 +1,9 @@
+.list-books-form {
+  display: flex;
+  align-items: center;
+
+  &__button--reset {
+    color: #ffffff;
+    margin: 1rem;
+  }
+}

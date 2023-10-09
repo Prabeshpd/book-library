@@ -5,6 +5,11 @@ export interface Config {
   endpoints: {
     login: string;
     createUser: string;
+    fetchBooks: string;
+    fetchBookDetail: string;
+    fetchUser: string;
+    borrowBooks: string;
+    userBooks: string;
   };
 }
 
@@ -13,11 +18,18 @@ const config: Config = {
   env: process.env.REACT_APP_ENV || 'dev',
   baseURI: process.env.REACT_BASE_API_URL || 'http://localhost:3000',
   endpoints: {
-    //login
+    // user
+    fetchUser: '/users/:id',
+    createUser: '/users',
+
+    // login
     login: '/login',
 
-    //User
-    createUser: '/users',
+    // books
+    fetchBooks: '/books',
+    fetchBookDetail: '/books/:id',
+    borrowBooks: '/userBooks',
+    userBooks: '/userBooks',
   },
 };
 

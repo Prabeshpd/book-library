@@ -60,7 +60,7 @@ const Login = (props: loginProps) => {
 
 const mapStateToProps = (state: AppState) => {
   return {
-    isLoggedIn: state.data.user.isLoggedIn,
+    isLoggedIn: state.data.users.isLoggedIn,
   };
 };
 

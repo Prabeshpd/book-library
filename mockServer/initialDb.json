@@ -1,3 +1,29 @@
 {
-  "users": []
+  "users": [],
+  "books": [
+    {
+      "title": "War And Peace",
+      "description": "",
+      "addedAt": "2021-02-24",
+      "imageUrl": "",
+      "burrowedNumber": 2,
+      "category": "nonFiction"
+    },
+    {
+      "title": "Rich Dad Poor Dad",
+      "description": "",
+      "addedAt": "2021-02-23",
+      "imageUrl": "",
+      "burrowedNumber": 3,
+      "category": "fiction"
+    },
+    {
+      "title": "Steve Jobs",
+      "description": "",
+      "addedAt": "2021-01-23",
+      "imageUrl": "",
+      "burrowedNumber": 5,
+      "category": "biography"
+    }
+  ]
 }

@@ -1,0 +1,39 @@
+.list-books {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+
+  @layer components {
+    @apply shadow-md;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: #111827;
+  }
+
+  &__input {
+    display: block;
+    margin: 1rem;
+    padding: 0.5rem;
+    padding-left: 2.5rem;
+    font-size: 0.875rem;
+    width: 20rem;
+    line-height: 1.25rem;
+    border-radius: 0.5rem;
+    border-width: 1px;
+    border-color: #4b5563;
+    background-color: #374151;
+    color: #ffffff;
+
+    @layer components {
+      @apply focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500;
+    }
+  }
+}
