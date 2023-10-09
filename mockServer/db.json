@@ -117,5 +117,11 @@
       "burrowedNumber": 11,
       "category": "fiction"
     }
+  ],
+  "userBooks": [
+    {
+      "userId": "0ee31e73-cd1c-4bde-b73e-d9d16e1ea06c",
+      "bookId": "d21cdc54-d2be-47f1-aba6-3a128db237fe"
+    }
   ]
 }

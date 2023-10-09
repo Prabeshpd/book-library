@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const server = jsonServer.create();
-const router = jsonServer.router('./mockServer/db.json');
+const router = jsonServer.router('./mockServer/db.json', { foreignKeySuffix: 'Id' });
 const middlewares = jsonServer.defaults();
 
 const reloadDB = async (req, res, next) => {

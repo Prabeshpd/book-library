@@ -29,7 +29,7 @@ const BookDetail = (props: BookDetailProps) => {
       try {
         await fetchUser();
       } catch (err: any) {
-        toast(err.message, 'error');
+        toast('Can not fetch profile information.', 'error');
       }
     }
 
