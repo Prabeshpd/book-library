@@ -96,7 +96,7 @@ export function useListBooks(actions: Actions) {
     const queryParams = getQueryParams();
 
     listBooks(queryParams);
-  }, [state.pageNumber]);
+  }, [state.pageNumber, state.sortParams]);
 
   return { state, dispatch, resetFilter, onApplyFilter };
 }

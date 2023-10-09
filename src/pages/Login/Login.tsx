@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 
 import { loginUser } from '@/actions/login';
 import toast from '@/lib/toast';
@@ -19,13 +19,6 @@ interface DispatchPropsInterface {
 type loginProps = StatePropsInterface & DispatchPropsInterface;
 
 const Login = (props: loginProps) => {
-  let navigate = useNavigate();
-
-  const navigateToRegister = () => {
-    let path = `/register`;
-    navigate(path);
-  };
-
   const { isLoggedIn, loginUser } = props;
 
   const handleFormSubmit = async (payload: LoginRequest) => {
@@ -44,16 +37,16 @@ const Login = (props: loginProps) => {
 
   return (
     <div className="layout-auth">
-      <div className="align-centre">
-        <p className="text-center">
+      <div className="layout-auth__card">
+        <header className="layout-auth__heading">Log In Form</header>
+        <LogInForm handleFormSubmit={handleFormSubmit} />
+        <div className="layout-auth__footer">
           Not Created an account
-          <a className="primary hollow medium" onClick={navigateToRegister}>
-            Click here for signup
-          </a>
-        </p>
+          <Link className="layout-auth__link" to="/register">
+            Create Account
+          </Link>
+        </div>
       </div>
-      <h2 className="layout-auth__heading">Log In Form</h2>
-      <LogInForm handleFormSubmit={handleFormSubmit} />
     </div>
   );
 };

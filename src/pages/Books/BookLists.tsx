@@ -6,9 +6,10 @@ import { fetchBooks } from '@/actions/books';
 
 import AppState from '@/types/states/app';
 import { Books } from '@/types/books';
-import { QueryParams, PaginationMeta } from '@/types/query';
+import { QueryParams, PaginationMeta, BooksSort } from '@/types/query';
 
 import Pagination from '@/components/Pagination/Pagination';
+import SortIcon from '@/components/SortIcon/SortIcon';
 
 import FilterForm from './FilterForm';
 import { useListBooks } from './hooks';
@@ -29,10 +30,36 @@ const BookList = (props: BookListProps) => {
   const { books, fetchBooks, isLoadingFetchBooks, meta } = props;
 
   const navigate = useNavigate();
-  const { onApplyFilter, resetFilter, state: _state, dispatch } = useListBooks({ fetchBooks });
+  const { onApplyFilter, resetFilter, state, dispatch } = useListBooks({ fetchBooks });
 
   const setPageNumber = (pageNumber: number) => {
     dispatch({ type: 'SET_PAGE_NUMBER', payload: pageNumber });
+  };
+
+  const setSortParams = (parameter: keyof BooksSort) => {
+    if (!parameter) return;
+    let sortParameter;
+
+    switch (state.sortParams[parameter]) {
+      case 'asc':
+        sortParameter = {
+          [parameter]: 'desc',
+        };
+        break;
+
+      case 'desc':
+        sortParameter = {
+          [parameter]: '',
+        };
+        break;
+
+      default:
+        sortParameter = {
+          [parameter]: 'asc',
+        };
+    }
+
+    dispatch({ type: 'SET_SORT_PARAMS', payload: { ...state.sortParams, ...sortParameter } });
   };
 
   const visitBookDetail = (id: string) => {
@@ -51,12 +78,30 @@ const BookList = (props: BookListProps) => {
             <th>Title</th>
             <th>Description</th>
             <th>Category</th>
-            <th>Burrowed Number</th>
-            <th>Added At</th>
+            <th
+              onClick={() => {
+                setSortParams('burrowedNumber');
+              }}
+            >
+              <div className="table__column-sort">
+                Burrowed Number
+                <SortIcon sort={state.sortParams.burrowedNumber} />
+              </div>
+            </th>
+            <th
+              onClick={() => {
+                setSortParams('addedAt');
+              }}
+            >
+              <div className="table__column-sort">
+                Added At
+                <SortIcon sort={state.sortParams.addedAt} />
+              </div>
+            </th>
           </tr>
         </thead>
         {(!isLoadingFetchBooks && (
-          <tbody data-test-id="search-table-body" className="table__body">
+          <tbody data-test-id="book-table-body" className="table__body">
             {books.map((book) => {
               return (
                 <tr
@@ -65,16 +110,16 @@ const BookList = (props: BookListProps) => {
                     visitBookDetail(book.id);
                   }}
                 >
-                  <td headers="keyword-column" className="table__column-image">
+                  <td headers="title-column" className="table__column-image">
                     <img className="w-10 h-10 rounded-full" src={book.imageUrl} alt="book Cover" />
                     <div className="m-2">{book.title}</div>
                   </td>
-                  <td headers="total-links-count-column">
+                  <td headers="description-column">
                     <div className="table__column-ellipsis">{book.description}</div>
                   </td>
-                  <td headers="status-column">{book.category}</td>
-                  <td headers="search-engine-column">{book.burrowedNumber}</td>
-                  <td headers="search-engine-column">{book.addedAt}</td>
+                  <td headers="category-column">{book.category}</td>
+                  <td headers="burrowed-number-column">{book.burrowedNumber}</td>
+                  <td headers="added-at-column">{book.addedAt}</td>
                 </tr>
               );
             })}

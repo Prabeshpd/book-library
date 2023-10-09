@@ -70,8 +70,7 @@ const BookDetail = (props: BookDetailProps) => {
               <header className="detail-user__header" data-test-id="detail-user-header">
                 Name: {user && user.name?.toUpperCase()}
               </header>
-              <p className="detail-user__info" data-test-id="detail-user-status">{`Status: ${status}`}</p>
-              <p className="detail-user__info" data-test-id="detail-user-link-counts">
+              <p className="detail-user__info" data-test-id="detail-user-email">
                 Email: {user?.email || ''}
               </p>
             </div>

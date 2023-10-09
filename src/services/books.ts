@@ -17,7 +17,8 @@ export async function fetchBooks(queryParams: QueryParams) {
   }
 
   if (!isEmpty(sortQueryParams)) {
-    queryString += `&${qs.stringifySortParams(sortQueryParams)}`;
+    const sortParams = filterNotNullValues(sortQueryParams);
+    queryString += `&${qs.stringifySortParams(sortParams)}`;
   }
 
   const url = config.endpoints.fetchBooks + queryString;

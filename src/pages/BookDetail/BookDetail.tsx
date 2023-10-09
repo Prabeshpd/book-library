@@ -57,7 +57,6 @@ const BookDetail = (props: BookDetailProps) => {
 
   const isBookBorrowed = () => {
     const filter = bookDetail.userBooks.filter((userBook) => userBook.userId === userId);
-    console.log(filter);
 
     return filter.length !== 0;
   };
@@ -68,30 +67,30 @@ const BookDetail = (props: BookDetailProps) => {
         <section className="detail-book__card">
           <img className="detail-book__image" src={bookDetail.imageUrl} alt="image description" />
           <div className="m-5">
-            <header className="detail-book__header" data-test-id="detail-book-header">
+            <header className="detail-book__header" data-test-id="detail-book-title">
               Title: {bookDetail && bookDetail.title?.toUpperCase()}
             </header>
-            <p className="detail-book__info" data-test-id="detail-book-link-counts">
+            <p className="detail-book__info" data-test-id="detail-book-description">
               Description: {bookDetail?.description}
             </p>
-            <p className="detail-book__info" data-test-id="detail-book-ad-counts">
+            <p className="detail-book__info" data-test-id="detail-book-category">
               Category: {bookDetail?.category}
             </p>
-            <p className="detail-book__info" data-test-id="detail-book-non-ad-counts">
+            <p className="detail-book__info" data-test-id="detail-book-burrowed-number">
               Burrowed: {bookDetail?.burrowedNumber} times
             </p>
-            <p className="detail-book__info" data-test-id="detail-book-search-engine">
+            <p className="detail-book__info" data-test-id="detail-book-added-at">
               Added Date: {bookDetail?.addedAt}
             </p>
             {(!isBookBorrowed() && (
               <button
                 onClick={borrowBook}
-                data-test-id="detail-book-download"
+                data-test-id="detail-book-borrow"
                 className="button button--primary detail-book__button"
               >
                 Borrow Book
               </button>
-            )) || <p>Already Borrowed</p>}
+            )) || <p data-test-id="detail-book-borrowed">Already Borrowed</p>}
           </div>
         </section>
       </div>

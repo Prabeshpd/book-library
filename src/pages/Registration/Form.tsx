@@ -43,7 +43,7 @@ export function RegistrationForm(props: InjectedProps) {
         <form className="form" onSubmit={handleSubmit}>
           <div className="space-y-12">
             <div className="form__body">
-              <div className="sm:col-span-4">
+              <div className="form__element sm:col-span-4">
                 <label className="form__label" htmlFor="name">
                   Name
                 </label>
@@ -59,9 +59,9 @@ export function RegistrationForm(props: InjectedProps) {
                     onBlur={handleBlur}
                   />
                 </div>
-                {errors.name && touched.name && <p>{errors.name}</p>}
+                {errors.name && touched.name && <p className="form__error">{errors.name}</p>}
               </div>
-              <div className="sm:col-span-4">
+              <div className="form__element sm:col-span-4">
                 <label className="form__label" htmlFor="email">
                   Email
                 </label>
@@ -77,9 +77,9 @@ export function RegistrationForm(props: InjectedProps) {
                     onBlur={handleBlur}
                   />
                 </div>
-                {errors.email && touched.email && <p>{errors.email}</p>}
+                {errors.email && touched.email && <p className="form__error">{errors.email}</p>}
               </div>
-              <div className="sm:col-span-4">
+              <div className="form__element  sm:col-span-4">
                 <label className="form__label" htmlFor="password">
                   Password
                 </label>
@@ -95,10 +95,10 @@ export function RegistrationForm(props: InjectedProps) {
                     onBlur={handleBlur}
                   />
                 </div>
-                {errors.password && touched.password && <p>{errors.password}</p>}
+                {errors.password && touched.password && <p className="form__error">{errors.password}</p>}
               </div>
 
-              <div className="sm:col-span-4 form__upload">
+              <div className="form__element sm:col-span-4 form__upload">
                 <div>
                   {(imageUrl && <img className="rounded-full w-16 h-16" src={imageUrl} alt="image description" />) || (
                     <svg fill="none" viewBox="0 0 24 24" height="4em" width="4em" {...props}>
@@ -122,9 +122,6 @@ export function RegistrationForm(props: InjectedProps) {
             </div>
 
             <div className="form__footer">
-              <button type="reset" className="button button--secondary" name="reset" value="Reset">
-                Cancel
-              </button>
               {(!isSubmitting && (
                 <button
                   type="submit"

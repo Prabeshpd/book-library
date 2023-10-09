@@ -2,28 +2,113 @@
   "users": [],
   "books": [
     {
+      "id": "a9b6b528-114d-49bc-a649-0c45391ef43a",
       "title": "War And Peace",
-      "description": "",
+      "description": "War and Peace (1869) is a novel that follows the lives of several aristocratic families during the French invasion of Russia and the Napoleonic Wars. It explores themes of love, war, politics, and the human condition, and is considered one of the great works of literature.",
       "addedAt": "2021-02-24",
-      "imageUrl": "",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FWar%20And%20Peace.jpg?alt=media&token=9b4e46e9-fef6-4c05-b40a-7b7d085a5fa7",
       "burrowedNumber": 2,
-      "category": "nonFiction"
-    },
-    {
-      "title": "Rich Dad Poor Dad",
-      "description": "",
-      "addedAt": "2021-02-23",
-      "imageUrl": "",
-      "burrowedNumber": 3,
       "category": "fiction"
     },
     {
+      "id": "4aa61773-c967-4c43-9d0c-0c3f0a15c276",
+      "title": "Rich Dad Poor Dad",
+      "description": "Rich Dad Poor Dad is Robert's story of growing up with two dads his real father and the father of his best friend, his rich dad  and the ways in which both men shaped his thoughts about money and investing. The book explodes the myth that you need to earn a high income to be rich and explains the difference between working for money and having your money work for you.",
+      "addedAt": "2021-02-23",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FRich%20Dad%20Poor%20Dad.jpeg?alt=media&token=2eac2459-4cd5-42f7-9aa5-7e2cc0950b0b",
+      "burrowedNumber": 3,
+      "category": "nonFiction"
+    },
+    {
+      "id": "9bbd4866-a5b6-4dfb-9eb8-0258ef91a6ed",
       "title": "Steve Jobs",
-      "description": "",
+      "description": "At a time when America is seeking ways to sustain its innovative edge, Jobs stands as the ultimate icon of inventiveness and applied imagination. He knew that the best way to create value in the twenty-first century was to connect creativity with technology. He built a company where leaps of the imagination were combined with remarkable feats of engineering.",
       "addedAt": "2021-01-23",
-      "imageUrl": "",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FSteveJobs.jpeg?alt=media&token=8ac14479-d956-4de2-b36b-6951d0712995",
       "burrowedNumber": 5,
       "category": "biography"
+    },
+    {
+      "id": "6c90e548-7b9c-425a-b7ad-0367390c53fd",
+      "title": "Clean Code",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "addedAt": "2021-01-25",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FClean%20Code.jpg?alt=media&token=804a2819-7a5a-4f2d-a974-8794ec9a1fd0",
+      "burrowedNumber": 1,
+      "category": "nonFiction"
+    },
+    {
+      "id": "8c5301e5-13ee-49da-bcfb-f525dda7a1ad",
+      "title": "Atomic Habits",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "addedAt": "2021-02-23",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FAtomic%20Habits.jpeg?alt=media&token=3f449d56-29f0-455c-a40c-059b8233e6aa",
+      "burrowedNumber": 10,
+      "category": "nonFiction"
+    },
+    {
+      "id": "d010af35-9602-4778-87d5-15bb8cf747f3",
+      "title": "Design Patterns",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "addedAt": "2022-01-23",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FDesign%20Pattern.jpg?alt=media&token=a70fe338-d772-4d7b-b600-0fa51322fe2d",
+      "burrowedNumber": 3,
+      "category": "nonFiction"
+    },
+    {
+      "id": "ec30b148-a035-4ce4-bf42-2b4347371c77",
+      "title": "Lord Of The Rings",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "addedAt": "2020-01-26",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FLord%20Of%20the%20Rings.jpeg?alt=media&token=2ec46b20-b52e-48ee-81de-c1bc5c8b7a68",
+      "burrowedNumber": 9,
+      "category": "fiction"
+    },
+    {
+      "id": "c8b5dc96-b70f-4f49-b28b-5c3abae09118",
+      "title": "Refactoring",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "addedAt": "2021-05-24",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FRefactoring.jpg?alt=media&token=a1881f50-d893-41af-b88c-2be6b97a25b0",
+      "burrowedNumber": 0,
+      "category": "nonFiction"
+    },
+    {
+      "id": "3d63d843-b7ff-4bc6-bef7-aa7153ddb62b",
+      "title": "The Hobbit",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "addedAt": "2021-06-23",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FThe%20Hobbit.jpg?alt=media&token=b7952291-1888-44a8-83a4-ffc652efe984",
+      "burrowedNumber": 7,
+      "category": "fiction"
+    },
+    {
+      "id": "393a4946-0cc6-4947-8807-d7b143f5061d",
+      "title": "The Pragmatic Programmer",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "addedAt": "2021-08-23",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FThe%20Pragmatic%20Programmer.jpeg?alt=media&token=7da01124-d1ec-4c23-a5cb-390c0db5070a",
+      "burrowedNumber": 3,
+      "category": "nonFiction"
+    },
+    {
+      "id": "b2dcee13-971e-4aac-ad2b-c8eab4c9d1ad",
+      "title": "The Tempest",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "addedAt": "2023-01-23",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FThe%20Tempest.jpg?alt=media&token=3829a01f-0134-4dfa-803a-13b62bc2d37e",
+      "burrowedNumber": 1,
+      "category": "fiction"
+    },
+    {
+      "id": "d21cdc54-d2be-47f1-aba6-3a128db237fe",
+      "title": "A Tale Of Two Cities",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "addedAt": "2019-01-23",
+      "imageUrl": "https://firebasestorage.googleapis.com/v0/b/digital-library-9c01d.appspot.com/o/books%2FA%20tale%20of%20two%20cities.jpeg?alt=media&token=56ef9036-85b6-4d0b-b11f-81fedab2c4e3",
+      "burrowedNumber": 11,
+      "category": "fiction"
     }
-  ]
+  ],
+  "userBooks": []
 }

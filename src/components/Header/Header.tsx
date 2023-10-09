@@ -22,6 +22,7 @@ function Header(props: HeaderProps) {
         <div className="app-header__menu">
           <a
             href="/app/profile"
+            data-test-id="app-header-profile-nav"
             className={classNames('app-header__link', {
               'app-header__link--active': pathSegment === '/app/profile',
             })}
@@ -30,7 +31,7 @@ function Header(props: HeaderProps) {
           </a>
           <a
             href="/app/books"
-            data-test-id="app-header-upload-keywords-nav"
+            data-test-id="app-header-books-nav"
             className={classNames('app-header__link', {
               'app-header__link--active': pathSegment === '/app/books',
             })}
