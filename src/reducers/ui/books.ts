@@ -6,6 +6,9 @@ import {
   FETCH_BOOK_DETAIL_FULFILLED,
   FETCH_BOOK_DETAIL_PENDING,
   FETCH_BOOK_DETAIL_REJECTED,
+  BORROW_BOOKS_FULFILLED,
+  BORROW_BOOKS_PENDING,
+  BORROW_BOOKS_REJECTED,
 } from '@/actions/books';
 
 import BookState from '@/types/states/ui/books';
@@ -13,6 +16,7 @@ import BookState from '@/types/states/ui/books';
 export const INITIAL_STATE: BookState = {
   isLoadingFetchBooks: false,
   isLoadingFetchBookDetail: false,
+  isLoadingBorrowBooks: false,
 };
 
 export default function login(state: BookState = INITIAL_STATE, action: BookActions): BookState {
@@ -39,6 +43,16 @@ export default function login(state: BookState = INITIAL_STATE, action: BookActi
     case FETCH_BOOK_DETAIL_FULFILLED:
     case FETCH_BOOK_DETAIL_REJECTED:
       return { ...state, isLoadingFetchBookDetail: false };
+
+    case BORROW_BOOKS_PENDING:
+      return {
+        ...state,
+        isLoadingBorrowBooks: true,
+      };
+
+    case BORROW_BOOKS_FULFILLED:
+    case BORROW_BOOKS_REJECTED:
+      return { ...state, isLoadingBorrowBooks: false };
 
     default:
       return state;

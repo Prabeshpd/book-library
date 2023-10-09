@@ -42,3 +42,10 @@ const formatDataForReducer = (data: any[]) => {
     },
   };
 };
+
+export async function borrowBooks(userId: string, books: string[]) {
+  const url = pinterpolate(config.endpoints.borrowBooks, { id: userId });
+  const { data } = await http.put(url, { books });
+
+  return data;
+}
