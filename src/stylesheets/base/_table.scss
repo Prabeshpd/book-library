@@ -21,6 +21,13 @@
     padding-right: 1.5rem;
   }
 
+  &__column-sort {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
+  }
+
   &__body > tr {
     background-color: #1f2937;
     border-color: #374151;
