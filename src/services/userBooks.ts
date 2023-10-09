@@ -1,11 +1,12 @@
 import config from '@/config/config';
 import http from '@/lib/requestManager/requestManager';
 import * as qs from '@/lib/queryString';
+import { formatDataForReducer } from '@/presenters/listPresenters';
 import { PageQueryParams } from '@/types/query';
 
 export async function borrowBooks(userId: string, bookId: string) {
   const url = config.endpoints.borrowBooks;
-  const { data } = await http.put(url, { userId, bookId });
+  const { data } = await http.post(url, { userId, bookId });
 
   return data;
 }
@@ -16,5 +17,5 @@ export async function fetchUserBooks(userId: string, paginationParams: PageQuery
 
   const { data } = await http.get(url);
 
-  return data;
+  return formatDataForReducer(data);
 }

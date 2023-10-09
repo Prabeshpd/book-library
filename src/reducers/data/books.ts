@@ -12,6 +12,7 @@ export const INITIAL_STATE: BookState = {
     category: '',
     imageUrl: '',
     burrowedNumber: 0,
+    userBooks: [],
   },
   meta: {
     limit: 0,

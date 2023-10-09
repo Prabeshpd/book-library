@@ -27,4 +27,4 @@ export type FetchUserBooksRejected = ActionWithError<FETCH_USER_BOOKS_REJECTED, 
 
 export type FetchUserBooksActions = FetchUserBooksPending | FetchUserBooksFulfilled | FetchUserBooksRejected;
 
-export const fetchUserBooks = createAction(FETCH_USER_BOOKS, userBooksService.borrowBooks);
+export const fetchUserBooks = createAction(FETCH_USER_BOOKS, userBooksService.fetchUserBooks);

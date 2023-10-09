@@ -29,17 +29,17 @@ const BookDetail = (props: BookDetailProps) => {
 
   const { fetchBookDetail, isLoadingFetchBookDetail, bookDetail, userId } = props;
 
-  React.useEffect(() => {
-    async function getBookDetail() {
-      try {
-        if (!id) return;
+  const getBookDetail = async () => {
+    try {
+      if (!id) return;
 
-        await fetchBookDetail(id);
-      } catch (err: any) {
-        toast(err.message, 'error');
-      }
+      await fetchBookDetail(id);
+    } catch (err: any) {
+      toast(err.message, 'error');
     }
+  };
 
+  React.useEffect(() => {
     getBookDetail();
   }, [id]);
 
@@ -48,9 +48,18 @@ const BookDetail = (props: BookDetailProps) => {
 
     try {
       await borrowBooks(userId, id);
+      await getBookDetail();
+      toast('Book has been borrowed', 'success');
     } catch (err) {
       toast('The book could not be borrowed. Sorry, for the inconvenience', 'error');
     }
+  };
+
+  const isBookBorrowed = () => {
+    const filter = bookDetail.userBooks.filter((userBook) => userBook.userId === userId);
+    console.log(filter);
+
+    return filter.length !== 0;
   };
 
   return (
@@ -74,13 +83,15 @@ const BookDetail = (props: BookDetailProps) => {
             <p className="detail-book__info" data-test-id="detail-book-search-engine">
               Added Date: {bookDetail?.addedAt}
             </p>
-            <button
-              onClick={borrowBook}
-              data-test-id="detail-book-download"
-              className="button button--primary detail-book__button"
-            >
-              Borrow Book
-            </button>
+            {(!isBookBorrowed() && (
+              <button
+                onClick={borrowBook}
+                data-test-id="detail-book-download"
+                className="button button--primary detail-book__button"
+              >
+                Borrow Book
+              </button>
+            )) || <p>Already Borrowed</p>}
           </div>
         </section>
       </div>
