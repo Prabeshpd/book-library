@@ -1,13 +1,37 @@
 .detail-user {
-  padding: 2rem;
-  text-align: center;
-  width: 100%;
-  background-color: #1f2937;
-  border-width: 1px;
-  border-color: #374151;
+  background-color: #374151;
+  height: 100vh;
 
-  @layer components {
-    @apply shadow;
+  &__card {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    background-color: #1f2937;
+    border-width: 1px;
+    border-color: #374151;
+    overflow: scroll;
+
+    @layer components {
+      @apply shadow;
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+    border-radius: 9999px;
+    width: 8rem;
+    height: auto;
+
+    @media (min-width: 768px) {
+      border-radius: 0.5rem;
+    }
+
+    @media (min-width: 768px) {
+      width: 12rem;
+      height: auto;
+    }
   }
 
   &__header {

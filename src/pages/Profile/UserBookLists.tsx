@@ -53,8 +53,8 @@ const UserBookList = (props: BookListProps) => {
   }, [currentPage]);
 
   return (
-    <section className="list-books">
-      <header className="list-books__header"></header>
+    <section className="user-book-list">
+      <header className="user-book-list__header">Book Burrowed</header>
       <table className="table">
         <thead className="table__head">
           <tr data-test-id="table-header-columns">

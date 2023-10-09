@@ -2,6 +2,7 @@
   font-size: 0.875rem;
   line-height: 1.25rem;
   width: 100%;
+  table-layout: fixed;
   text-align: left;
   color: #9ca3af;
 
@@ -43,7 +44,7 @@
   }
 
   &__column-ellipsis {
-    width: 25rem;
+    max-width: 25rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

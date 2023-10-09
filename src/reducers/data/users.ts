@@ -12,6 +12,7 @@ export const INITIAL_STATE: User = {
     email: '',
     name: '',
     id: '',
+    imageUrl: '',
   },
 };
 
