@@ -110,16 +110,16 @@ const BookList = (props: BookListProps) => {
                     visitBookDetail(book.id);
                   }}
                 >
-                  <td headers="keyword-column" className="table__column-image">
+                  <td headers="title-column" className="table__column-image">
                     <img className="w-10 h-10 rounded-full" src={book.imageUrl} alt="book Cover" />
                     <div className="m-2">{book.title}</div>
                   </td>
-                  <td headers="total-links-count-column">
+                  <td headers="description-column">
                     <div className="table__column-ellipsis">{book.description}</div>
                   </td>
-                  <td headers="status-column">{book.category}</td>
-                  <td headers="search-engine-column">{book.burrowedNumber}</td>
-                  <td headers="search-engine-column">{book.addedAt}</td>
+                  <td headers="category-column">{book.category}</td>
+                  <td headers="burrowed-number-column">{book.burrowedNumber}</td>
+                  <td headers="added-at-column">{book.addedAt}</td>
                 </tr>
               );
             })}
