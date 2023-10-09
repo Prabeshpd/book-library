@@ -7,7 +7,7 @@ export const INITIAL_STATE: UserState = {
   isLoadingFetchUser: false,
 };
 
-export default function login(state: UserState = INITIAL_STATE, action: AuthActions): UserState {
+export default function users(state: UserState = INITIAL_STATE, action: AuthActions): UserState {
   switch (action.type) {
     case FETCH_USER_PENDING:
       return {

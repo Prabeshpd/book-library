@@ -4,23 +4,22 @@ import { useParams } from 'react-router-dom';
 
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { fetchBookDetail, borrowBooks } from '@/actions/books';
+import { fetchBookDetail } from '@/actions/books';
 
 import toast from '@/lib/toast';
 
+import { borrowBooks } from '@/services/userBooks';
 import AppState from '@/types/states/app';
 import { Books } from '@/types/books';
-import User from '@/types/user';
 
 interface StatePropsInterface {
   bookDetail: Books;
+  userId: string;
   isLoadingFetchBookDetail: boolean;
-  user: User;
 }
 
 interface DispatchPropsInterface {
   fetchBookDetail: (id: string) => void;
-  borrowBooks: (userId: string, books: string[]) => void;
 }
 
 type BookDetailProps = StatePropsInterface & DispatchPropsInterface;
@@ -28,7 +27,7 @@ type BookDetailProps = StatePropsInterface & DispatchPropsInterface;
 const BookDetail = (props: BookDetailProps) => {
   const { id } = useParams();
 
-  const { fetchBookDetail, isLoadingFetchBookDetail, bookDetail, user, borrowBooks } = props;
+  const { fetchBookDetail, isLoadingFetchBookDetail, bookDetail, userId } = props;
 
   React.useEffect(() => {
     async function getBookDetail() {
@@ -48,9 +47,7 @@ const BookDetail = (props: BookDetailProps) => {
     if (!id) return;
 
     try {
-      const borrowedBooks = [...user.books, id];
-
-      await borrowBooks(user.id, borrowedBooks);
+      await borrowBooks(userId, id);
     } catch (err) {
       toast('The book could not be borrowed. Sorry, for the inconvenience', 'error');
     }
@@ -94,15 +91,13 @@ const BookDetail = (props: BookDetailProps) => {
 const mapStateToProps = (state: AppState) => {
   return {
     bookDetail: state.data.books.bookDetail,
-    // No need to handle this in actual environment communicating to backend
-    user: state.data.users.user,
     isLoadingFetchBookDetail: state.ui.books.isLoadingFetchBookDetail,
+    userId: state.data.users.user.id,
   };
 };
 
 const mapDispatchToProps = {
   fetchBookDetail,
-  borrowBooks,
 };
 
 export default connect<StatePropsInterface, DispatchPropsInterface>(mapStateToProps, mapDispatchToProps)(BookDetail);
