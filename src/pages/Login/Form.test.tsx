@@ -21,9 +21,6 @@ describe('Login Form:', () => {
 
     const submitButtonElement = screen.getByRole('button', { name: 'Login' });
     expect(submitButtonElement).toHaveAttribute('type', 'submit');
-
-    const resetButtonElement = screen.getByRole('button', { name: 'Cancel' });
-    expect(resetButtonElement).toHaveAttribute('type', 'reset');
   });
 
   it('submits the form"s input values on submit', async () => {

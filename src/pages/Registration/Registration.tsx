@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { Link } from 'react-router-dom';
 
 import RegistrationForm from './Form';
 
@@ -23,8 +24,17 @@ const Register = () => {
 
   return (
     <div className="layout-auth">
-      <h2 className="layout-auth__heading">Registration Form</h2>
-      <RegistrationForm handleFormSubmit={handleFormSubmit} />
+      <div className="layout-auth__card">
+        <header className="layout-auth__heading">Registration Form</header>
+
+        <RegistrationForm handleFormSubmit={handleFormSubmit} />
+        <div className="layout-auth__footer">
+          Already have an account.
+          <Link className="layout-auth__link" to="/login">
+            Login
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };
