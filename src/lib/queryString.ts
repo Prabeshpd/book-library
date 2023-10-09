@@ -8,10 +8,21 @@ export function parse<T>(queryString: string) {
   return qs.parse(queryString);
 }
 
-export function stringify(queryParams: any, prefix: string = '?'): string {
+interface StringifyOptions {
+  hasPrefix: boolean;
+  prefix?: string;
+}
+
+const stringifyOptions: StringifyOptions = {
+  hasPrefix: true,
+  prefix: '?',
+};
+
+export function stringify(queryParams: any, options: StringifyOptions = stringifyOptions): string {
+  const { prefix, hasPrefix } = options;
   const queryString = qs.stringify(queryParams);
 
-  return `${prefix}${queryString}`;
+  return hasPrefix ? `${prefix}${queryString}` : queryString;
 }
 
 export function stringifySortParams(sortParams: any) {

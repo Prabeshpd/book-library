@@ -43,29 +43,31 @@ const BookDetail = (props: BookDetailProps) => {
 
   return (
     (!isLoadingFetchBookDetail && (
-      <>
-        <section className="detail-book">
-          <header className="detail-book__header" data-test-id="detail-book-header">
-            Title: {bookDetail && bookDetail.title?.toUpperCase()}
-          </header>
-          <p className="detail-book__info" data-test-id="detail-book-status">{`Status: ${status}`}</p>
-          <p className="detail-book__info" data-test-id="detail-book-link-counts">
-            Description: {bookDetail?.description || 0}
-          </p>
-          <p className="detail-book__info" data-test-id="detail-book-ad-counts">
-            Category: {bookDetail?.category || 0}
-          </p>
-          <p className="detail-book__info" data-test-id="detail-book-non-ad-counts">
-            Burrowed: {bookDetail?.burrowedNumber || 0} times
-          </p>
-          <p className="detail-book__info" data-test-id="detail-book-search-engine">
-            Added Date: {bookDetail?.addedAt}
-          </p>
-          <button data-test-id="detail-book-download" className="button button--primary detail-book__button">
-            Borrow Book
-          </button>
+      <div className="detail-book">
+        <section className="detail-book__card">
+          <img className="detail-book__image" src={bookDetail.imageUrl} alt="image description" />
+          <div className="m-5">
+            <header className="detail-book__header" data-test-id="detail-book-header">
+              Title: {bookDetail && bookDetail.title?.toUpperCase()}
+            </header>
+            <p className="detail-book__info" data-test-id="detail-book-link-counts">
+              Description: {bookDetail?.description}
+            </p>
+            <p className="detail-book__info" data-test-id="detail-book-ad-counts">
+              Category: {bookDetail?.category}
+            </p>
+            <p className="detail-book__info" data-test-id="detail-book-non-ad-counts">
+              Burrowed: {bookDetail?.burrowedNumber} times
+            </p>
+            <p className="detail-book__info" data-test-id="detail-book-search-engine">
+              Added Date: {bookDetail?.addedAt}
+            </p>
+            <button data-test-id="detail-book-download" className="button button--primary detail-book__button">
+              Borrow Book
+            </button>
+          </div>
         </section>
-      </>
+      </div>
     )) || <ClipLoader />
   );
 };

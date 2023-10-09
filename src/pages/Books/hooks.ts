@@ -79,17 +79,17 @@ export function useListBooks(actions: Actions) {
   };
 
   const onApplyFilter = async (filterParameters: BooksFilter) => {
-    const queryParams = getQueryParams();
     dispatch({ type: SET_FILTER_PARAMS, payload: filterParameters });
+    const queryParams = getQueryParams();
 
-    await listBooks(queryParams);
+    await listBooks({ ...queryParams, filterQueryParams: filterParameters });
   };
 
   const resetFilter = async () => {
-    const queryParams = getQueryParams();
     dispatch({ type: SET_FILTER_PARAMS, payload: {} });
+    const queryParams = getQueryParams();
 
-    await listBooks(queryParams);
+    await listBooks({ ...queryParams, filterQueryParams: {} });
   };
 
   useEffect(() => {

@@ -42,4 +42,4 @@ export type FetchBookDetailActions = FetchBookDetailPending | FetchBookDetailFul
 export type FetchBooksActions = FetchBooksPending | FetchBooksFulfilled | FetchBooksRejected;
 
 export const fetchBooks = createAction(FETCH_BOOKS, booksService.fetchBooks);
-export const fetchBookDetail = createAction(FETCH_BOOKS_REJECTED, booksService.fetchSearchDetail);
+export const fetchBookDetail = createAction(FETCH_BOOK_DETAIL, booksService.fetchBookDetail);
