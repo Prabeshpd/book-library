@@ -3,9 +3,10 @@ interface User {
   readonly refreshToken: string;
   readonly isLoggedIn: boolean;
   user: {
-    readonly id: number;
+    readonly id: string;
     readonly email: string;
     readonly name: string;
+    readonly books: string[];
   };
 }
 
