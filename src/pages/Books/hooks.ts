@@ -94,7 +94,6 @@ export function useListBooks(actions: Actions) {
 
   useEffect(() => {
     const queryParams = getQueryParams();
-    console.log({ queryParams });
 
     listBooks(queryParams);
   }, [state.pageNumber, state.sortParams]);
