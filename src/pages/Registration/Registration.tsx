@@ -14,6 +14,7 @@ const Register = () => {
     try {
       const payload = { ...registerPayload, id: uuidv4() };
       await createUser(payload);
+      // It can be done from the backend itself. As, we are mimicing the json server as backend.
       await saveUser(payload);
 
       toast('The user account has been successfully created. You can now log in.', 'success');
