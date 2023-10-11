@@ -1,4 +1,4 @@
-name: Digital Payment Server Release
+name: Digital Library Release
 
 on:
   push:
