@@ -60,6 +60,7 @@
     "webpack-hot-middleware": "^2.25.4"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.7",
     "@types/image-thumbnail": "^1.0.2",
     "axios": "^1.5.1",
     "classnames": "^2.3.2",
