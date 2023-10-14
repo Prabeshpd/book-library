@@ -1,3 +1,5 @@
+import { PaginationMeta } from './query';
+
 export interface Books {
   id: string;
   title: string;
@@ -7,4 +9,9 @@ export interface Books {
   description: string;
   category: string;
   userBooks: { userId: string; bookId: string }[];
+}
+
+export interface FetchBooksResponse {
+  books: Books[];
+  meta: PaginationMeta;
 }
