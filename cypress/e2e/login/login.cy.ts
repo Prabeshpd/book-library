@@ -17,7 +17,7 @@ describe('Login with Credentials', () => {
 
       cy.hasToastMessage('success', 'You have logged in successfully.');
       cy.location().should((location) => {
-        expect(location.pathname).to.eq('/app/profile');
+        expect(location.pathname).to.eq('/profile');
       });
     });
   });

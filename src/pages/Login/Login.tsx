@@ -13,9 +13,12 @@ const Login = () => {
 
   const handleFormSubmit = async (payload: LoginRequest) => {
     try {
-      await dispatch(login(payload));
-
-      toast('You have logged in successfully.', 'success');
+      const response = (await dispatch(login(payload))) as any;
+      if (response.error) {
+        toast('The provided credentials are invalid.', 'error');
+      } else {
+        toast('You have logged in successfully.', 'success');
+      }
     } catch (err) {
       toast('The provided credentials are invalid.', 'error');
     }

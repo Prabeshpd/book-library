@@ -7,7 +7,7 @@ import books from './Books/books';
 import authentication from './Authentication/authentication';
 import userBooks from './UserBooks/userBooks';
 
-const rootReducers = combineReducers({
+export const rootReducers = combineReducers({
   users,
   books,
   authentication,
