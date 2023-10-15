@@ -40,10 +40,12 @@ export const extraReducers: (builder: ActionReducerMapBuilder<AuthState>) => voi
   builder.addCase(login.fulfilled, (state: AuthState, action: PayloadAction<LoginResponse>) => {
     state.isLoadingLogin = false;
     state.accessToken = action.payload.accessToken;
+    state.isLoggedIn = true;
   });
 
   builder.addCase(login.rejected, (state: AuthState) => {
     state.isLoadingLogin = false;
+    state.isLoggedIn = false;
   });
 
   builder.addCase(login.pending, (state: AuthState) => {
@@ -54,6 +56,7 @@ export const extraReducers: (builder: ActionReducerMapBuilder<AuthState>) => voi
 export const authReducers = {
   logout: (state: AuthState): void => {
     state.accessToken = '';
+    state.isLoggedIn = false;
     clearToken();
   },
 };

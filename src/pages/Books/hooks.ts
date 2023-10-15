@@ -30,11 +30,11 @@ type setSortParams = Action<SET_SORT_PARAMS, BooksSort>;
 type tableActions = setPageNumber | setFilterParams | setSortParams;
 
 interface Actions {
-  fetchBooks: (queryParams: QueryParams) => void;
+  dispatchFetchBooks: (queryParams: QueryParams) => void;
 }
 
 export function useListBooks(actions: Actions) {
-  const { fetchBooks } = actions;
+  const { dispatchFetchBooks } = actions;
   let [state, dispatch] = useReducer(
     (state: tableState, action: tableActions) => {
       switch (action.type) {
@@ -72,7 +72,7 @@ export function useListBooks(actions: Actions) {
 
   const listBooks = async (queryParams: QueryParams) => {
     try {
-      await fetchBooks(queryParams);
+      await dispatchFetchBooks(queryParams);
     } catch (err: any) {
       toast('Unable to fetch the list of keywords.', 'error');
     }
@@ -92,11 +92,41 @@ export function useListBooks(actions: Actions) {
     await listBooks({ ...queryParams, filterQueryParams: {} });
   };
 
+  const setSortParams = (parameter: keyof BooksSort) => {
+    if (!parameter) return;
+    let sortParameter;
+
+    switch (state.sortParams[parameter]) {
+      case 'asc':
+        sortParameter = {
+          [parameter]: 'desc',
+        };
+        break;
+
+      case 'desc':
+        sortParameter = {
+          [parameter]: '',
+        };
+        break;
+
+      default:
+        sortParameter = {
+          [parameter]: 'asc',
+        };
+    }
+
+    dispatch({ type: SET_SORT_PARAMS, payload: { ...state.sortParams, ...sortParameter } });
+  };
+
+  const setPageNumber = (pageNumber: number) => {
+    dispatch({ type: SET_PAGE_NUMBER, payload: pageNumber });
+  };
+
   useEffect(() => {
     const queryParams = getQueryParams();
 
     listBooks(queryParams);
   }, [state.pageNumber, state.sortParams]);
 
-  return { state, dispatch, resetFilter, onApplyFilter };
+  return { state, dispatch, resetFilter, onApplyFilter, setSortParams, setPageNumber };
 }

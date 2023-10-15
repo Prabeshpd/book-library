@@ -1,37 +1,30 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
-
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { fetchUser } from '@/actions/users';
-import { fetchUserBooks } from '@/actions/userBooks';
-
+import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import toast from '@/lib/toast';
-
-import AppState from '@/types/states/app';
-import { PaginationMeta, PageQueryParams } from '@/types/query';
-import User from '@/types/user';
-import { UserBook } from '@/types/userBooks';
+import { fetchUser } from '@/reducers/User/actions';
+import { fetchUserBooks } from '@/reducers/UserBooks/actions';
+import { PageQueryParams } from '@/types/query';
 
 import UserBookList from './UserBookLists';
 
-interface StatePropsInterface {
-  user: User;
-  isLoadingFetchUser: boolean;
-  meta: PaginationMeta;
-  userBooks: UserBook[];
-  isLoadingFetchUserBooks: boolean;
-}
+const BookDetail = () => {
+  const { user, isLoadingFetchUser } = useAppSelector((state) => state.users);
+  const { userBooks, meta, isLoadingFetchUserBooks } = useAppSelector((state) => state.userBooks);
+  const dispatch = useAppDispatch();
 
-interface DispatchPropsInterface {
-  fetchUser: (id: string) => void;
-  fetchUserBooks: (userId: string, pageQueryParams: PageQueryParams) => void;
-}
+  const dispatchFetchUserBooks = React.useCallback(
+    (paginationParams: PageQueryParams) => {
+      const queryParams = {
+        paginationParams,
+        userId: user.id,
+      };
 
-type BookDetailProps = StatePropsInterface & DispatchPropsInterface;
-
-const BookDetail = (props: BookDetailProps) => {
-  const { fetchUser, isLoadingFetchUser, user, isLoadingFetchUserBooks, meta, userBooks, fetchUserBooks } = props;
+      dispatch(fetchUserBooks(queryParams));
+    },
+    [dispatch],
+  );
 
   React.useEffect(() => {
     async function getCurrentUser() {
@@ -51,7 +44,7 @@ const BookDetail = (props: BookDetailProps) => {
         <div className="detail-user">
           <section className="detail-user__card">
             {(user.imageUrl && <img className="detail-user__image" src={user.imageUrl} alt="image description" />) || (
-              <svg fill="none" viewBox="0 0 24 24" height="4em" width="4em" {...props}>
+              <svg fill="none" viewBox="0 0 24 24" height="4em" width="4em">
                 <path
                   fill="currentColor"
                   fillRule="evenodd"
@@ -79,8 +72,7 @@ const BookDetail = (props: BookDetailProps) => {
             isLoadingFetchUserBooks={isLoadingFetchUserBooks}
             meta={meta}
             userBooks={userBooks}
-            fetchUserBooks={fetchUserBooks}
-            userId={user.id}
+            fetchUserBooks={dispatchFetchUserBooks}
           />
         </div>
       </>
@@ -88,20 +80,4 @@ const BookDetail = (props: BookDetailProps) => {
   );
 };
 
-const mapStateToProps = (state: AppState) => {
-  console.log({ state });
-  return {
-    user: state.data.users.user,
-    isLoadingFetchUser: state.ui.users.isLoadingFetchUser,
-    userBooks: state.data.userBooks.userBooks,
-    meta: state.data.userBooks.meta,
-    isLoadingFetchUserBooks: state.ui.userBooks.isLoadingFetchUserBooks,
-  };
-};
-
-const mapDispatchToProps = {
-  fetchUser,
-  fetchUserBooks,
-};
-
-export default connect<StatePropsInterface, DispatchPropsInterface>(mapStateToProps, mapDispatchToProps)(BookDetail);
+export default BookDetail;

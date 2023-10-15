@@ -4,7 +4,6 @@ import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
 import { render, waitFor, screen } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
 
 import BookDetail from './BookDetail';
 

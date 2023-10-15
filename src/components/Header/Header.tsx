@@ -1,20 +1,18 @@
 import classNames from 'classnames';
-import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import { logout } from '@/actions/logout';
+import { useAppDispatch } from '@/hooks/store';
+import { authActions } from '@/reducers/Authentication/authentication';
 
-interface DispatchPropsInterface {
-  logout: () => {};
-}
-
-type HeaderProps = DispatchPropsInterface;
-
-function Header(props: HeaderProps) {
+function Header() {
   const location = useLocation();
   const pathSegment = location.pathname;
 
-  const { logout } = props;
+  const dispatch = useAppDispatch();
+
+  const logout = () => {
+    dispatch(authActions.logout());
+  };
 
   return (
     <header className="app-header">
@@ -40,12 +38,7 @@ function Header(props: HeaderProps) {
           </a>
         </div>
         <div className="app-header__dropdown">
-          <button
-            type="button"
-            onClick={() => {
-              logout();
-            }}
-          >
+          <button type="button" onClick={logout}>
             Log out
           </button>
         </div>
@@ -54,8 +47,4 @@ function Header(props: HeaderProps) {
   );
 }
 
-const mapDispatchToProps = {
-  logout,
-};
-
-export default connect<null, DispatchPropsInterface>(null, mapDispatchToProps)(Header);
+export default Header;
