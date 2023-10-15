@@ -5,11 +5,13 @@ import { extraReducers, authReducers } from './actions';
 export interface AuthState {
   accessToken: string;
   isLoadingLogin: boolean;
+  isLoggedIn: boolean;
 }
 
 const initialState: AuthState = {
   accessToken: '',
   isLoadingLogin: false,
+  isLoggedIn: false,
 };
 
 export const authSlice = createSlice({

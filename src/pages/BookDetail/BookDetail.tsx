@@ -1,39 +1,25 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import ClipLoader from 'react-spinners/ClipLoader';
 
-import { fetchBookDetail } from '@/actions/books';
-
-import toast from '@/lib/toast';
-
 import { borrowBooks } from '@/adapters/userBooks';
-import AppState from '@/types/states/app';
-import { Books } from '@/types/books';
+import { useAppDispatch, useAppSelector } from '@/hooks/store';
+import toast from '@/lib/toast';
+import { fetchBookDetail } from '@/reducers/Books/actions';
 
-interface StatePropsInterface {
-  bookDetail: Books;
-  userId: string;
-  isLoadingFetchBookDetail: boolean;
-}
-
-interface DispatchPropsInterface {
-  fetchBookDetail: (id: string) => void;
-}
-
-type BookDetailProps = StatePropsInterface & DispatchPropsInterface;
-
-const BookDetail = (props: BookDetailProps) => {
+const BookDetail = () => {
   const { id } = useParams();
 
-  const { fetchBookDetail, isLoadingFetchBookDetail, bookDetail, userId } = props;
+  const { book: bookDetail, isLoadingFetchBookDetail } = useAppSelector((state) => state.books);
+  const userId = useAppSelector((state) => state.users.user.id);
+  const dispatch = useAppDispatch();
 
   const getBookDetail = async () => {
     try {
       if (!id) return;
 
-      await fetchBookDetail(id);
+      await dispatch(fetchBookDetail(id));
     } catch (err: any) {
       toast(err.message, 'error');
     }
@@ -98,16 +84,4 @@ const BookDetail = (props: BookDetailProps) => {
   );
 };
 
-const mapStateToProps = (state: AppState) => {
-  return {
-    bookDetail: state.data.books.bookDetail,
-    isLoadingFetchBookDetail: state.ui.books.isLoadingFetchBookDetail,
-    userId: state.data.users.user.id,
-  };
-};
-
-const mapDispatchToProps = {
-  fetchBookDetail,
-};
-
-export default connect<StatePropsInterface, DispatchPropsInterface>(mapStateToProps, mapDispatchToProps)(BookDetail);
+export default BookDetail;
