@@ -1,38 +1,31 @@
-import { connect } from 'react-redux';
 import { Navigate, Link } from 'react-router-dom';
 
-import { loginUser } from '@/actions/login';
+import { login } from '@/reducers/Authentication/actions';
+import { useAppDispatch, useAppSelector } from '@/hooks/store';
 import toast from '@/lib/toast';
 import { LoginRequest } from '@/types/auth';
-import AppState from '@/types/states/app';
 
 import LogInForm from './Form';
 
-interface StatePropsInterface {
-  isLoggedIn: boolean;
-}
-
-interface DispatchPropsInterface {
-  loginUser: (payload: LoginRequest) => void;
-}
-
-type loginProps = StatePropsInterface & DispatchPropsInterface;
-
-const Login = (props: loginProps) => {
-  const { isLoggedIn, loginUser } = props;
+const Login = () => {
+  const { isLoggedIn } = useAppSelector((state) => state.authentication);
+  const dispatch = useAppDispatch();
 
   const handleFormSubmit = async (payload: LoginRequest) => {
     try {
-      await loginUser(payload);
-
-      toast('You have logged in successfully.', 'success');
+      const response = (await dispatch(login(payload))) as any;
+      if (response.error) {
+        toast('The provided credentials are invalid.', 'error');
+      } else {
+        toast('You have logged in successfully.', 'success');
+      }
     } catch (err) {
       toast('The provided credentials are invalid.', 'error');
     }
   };
 
   if (isLoggedIn) {
-    return <Navigate to="/app/profile" replace={true} />;
+    return <Navigate to="/profile" replace={true} />;
   }
 
   return (
@@ -51,14 +44,4 @@ const Login = (props: loginProps) => {
   );
 };
 
-const mapStateToProps = (state: AppState) => {
-  return {
-    isLoggedIn: state.data.users.isLoggedIn,
-  };
-};
-
-const mapDispatchToProps = {
-  loginUser,
-};
-
-export default connect<StatePropsInterface, DispatchPropsInterface>(mapStateToProps, mapDispatchToProps)(Login);
+export default Login;

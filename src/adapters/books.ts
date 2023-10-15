@@ -1,13 +1,14 @@
 import pinterpolate from 'pinterpolate';
 
 import config from '@/config/config';
-import { isEmpty, filterNotNullValues } from '@/helpers/object';
-import http from '@/lib/requestManager/requestManager';
 import * as qs from '@/lib/queryString';
+import { isEmpty, filterNotNullValues } from '@/helpers/object';
 import { formatDataForReducer } from '@/presenters/listPresenters';
 import { QueryParams } from '@/types/query';
 
-export async function fetchBooks(queryParams: QueryParams) {
+import { get } from './base';
+
+export const fetchBooks = async (queryParams: QueryParams) => {
   const { paginationQueryParams, filterQueryParams, sortQueryParams } = queryParams;
   let queryString = qs.stringify(paginationQueryParams);
 
@@ -22,14 +23,13 @@ export async function fetchBooks(queryParams: QueryParams) {
   }
 
   const url = config.endpoints.fetchBooks + queryString;
-  const { data } = await http.get(url);
+  const data = (await get(url)) as unknown as any[];
 
   return formatDataForReducer(data);
-}
+};
 
-export async function fetchBookDetail(id: string) {
+export const fetchBookDetail = (id: string) => {
   const url = pinterpolate(config.endpoints.fetchBookDetail, { id }) + '?_embed=userBooks';
-  const { data } = await http.get(url);
 
-  return data;
-}
+  return get(url);
+};

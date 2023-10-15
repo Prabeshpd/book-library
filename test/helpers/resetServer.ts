@@ -1,14 +1,12 @@
-import http from '@/lib/requestManager/requestManager';
+import requestManager from '@/lib/requestManager/requestManager';
 import fs from 'fs';
 
 const resetServer = async () => {
   const database = await JSON.parse(fs.readFileSync('./mockServer/db.json', 'utf8'));
-  console.log(database.users);
+
   if (!database.users.length) return null;
 
-  const { data } = await http.post('/reloadDb');
-
-  return data;
+  return requestManager('POST', '/reloadDb');
 };
 
 export default resetServer;

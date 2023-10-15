@@ -1,4 +1,4 @@
-name: Release Digital Library
+name: Digital Library Release
 
 on:
   push:

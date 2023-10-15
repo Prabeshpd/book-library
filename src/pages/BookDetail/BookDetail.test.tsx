@@ -1,31 +1,30 @@
 import '@testing-library/jest-dom';
 
-import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
-
 import { render, waitFor, screen } from '@testing-library/react';
-// import userEvent from '@testing-library/user-event';
+
+import { useAppDispatch, useAppSelector } from '@/hooks/store';
 
 import BookDetail from './BookDetail';
+import TestWrapper from '../../../test/testWrapper/TestWrapper';
 
-jest.mock('../../actions/books', () => ({
-  fetchBookDetail: jest.fn(),
-}));
+jest.mock('../../hooks/store');
+
+const mockDispatch = jest.fn();
 
 describe('book detail', () => {
-  const mockStore = configureStore([]);
   describe('given valid props', () => {
     it('renders the component', async () => {
-      const store = mockStore({
-        fetchBookDetail: jest.fn(),
-        data: { books: { bookDetail: { userBooks: [] } }, users: { user: { id: '' } } },
-        ui: { books: { isLoadingFetchBookDetail: false } },
-      });
+      const store = {
+        books: { book: { userBooks: [] }, isLoadingFetchBookDetail: false },
+        users: { user: { id: '' } },
+      };
+      (useAppSelector as jest.Mock).mockImplementation((callback) => callback(store));
+      (useAppDispatch as jest.Mock).mockImplementation(() => mockDispatch);
 
       render(
-        <Provider store={store}>
+        <TestWrapper>
           <BookDetail />
-        </Provider>,
+        </TestWrapper>,
       );
 
       await waitFor(() => {
@@ -38,16 +37,17 @@ describe('book detail', () => {
 
   describe('given user has borrowed the book', () => {
     it('does NOT render Borrow Book button', async () => {
-      const store = mockStore({
-        fetchBookDetail: jest.fn(),
-        data: { books: { bookDetail: { userBooks: [{ userId: '1' }] } }, users: { user: { id: '1' } } },
-        ui: { books: { isLoadingFetchBookDetail: false } },
-      });
+      const store = {
+        books: { book: { userBooks: [{ userId: '1' }] }, isLoadingFetchBookDetail: false },
+        users: { user: { id: '1' } },
+      };
+      (useAppSelector as jest.Mock).mockImplementation((callback) => callback(store));
+      (useAppDispatch as jest.Mock).mockImplementation(() => mockDispatch);
 
       render(
-        <Provider store={store}>
+        <TestWrapper>
           <BookDetail />
-        </Provider>,
+        </TestWrapper>,
       );
 
       await waitFor(async () => {

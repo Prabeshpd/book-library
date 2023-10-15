@@ -7,7 +7,7 @@ import './stylesheets/application.scss';
 
 import App from './App';
 import { FirebaseProvider } from './context/firebase';
-import store, { persistor } from './store';
+import { store, persistor } from './reducers/store';
 import { ToastContainerWrapper } from './ToastContainer';
 
 const container = document.getElementById('app');

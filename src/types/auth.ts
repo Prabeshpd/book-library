@@ -10,10 +10,6 @@ export interface LoginRequest {
   email: string;
   password: string;
 }
-export interface LogoutResponse {
-  code: number;
-  message: string | null;
-}
 
 export interface RegisterPayload {
   email: string;
