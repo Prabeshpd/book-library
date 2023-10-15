@@ -8,7 +8,7 @@ export interface UserBook {
 }
 
 export interface FetchUserBooksResponse {
-  userBooks: UserBook[];
+  data: UserBook[];
   meta: PaginationMeta;
 }
 

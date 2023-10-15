@@ -1,13 +1,12 @@
 import { AxiosError } from 'axios';
 import { ActionReducerMapBuilder, AsyncThunkPayloadCreator, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
-import * as authAdapter from 'src/adapters/authentication';
-
-import { AuthState } from './authentication';
+import * as authAdapter from '@/adapters/authentication';
 import { clearToken } from '@/helpers/authentication';
 import { LoginRequest, LoginResponse } from '@/types/auth';
 
-import { userActions } from '../User/users';
+import { AuthState } from './authentication';
+import { setUser } from '../User/users';
 
 export const LOGIN_ACTION = 'login/user';
 export type LOGIN_ACTION = typeof LOGIN_ACTION;
@@ -18,7 +17,7 @@ export const loginAction: AsyncThunkPayloadCreator<LoginResponse, LoginRequest, 
 ) => {
   try {
     const loginResponse = (await authAdapter.login(payload)) as unknown as LoginResponse;
-    dispatch(userActions.setUser(loginResponse.user));
+    dispatch(setUser(loginResponse.user));
 
     return loginResponse;
   } catch (error: any) {
@@ -45,7 +44,6 @@ export const extraReducers: (builder: ActionReducerMapBuilder<AuthState>) => voi
 
   builder.addCase(login.rejected, (state: AuthState) => {
     state.isLoadingLogin = false;
-    state.isLoggedIn = false;
   });
 
   builder.addCase(login.pending, (state: AuthState) => {
@@ -56,7 +54,7 @@ export const extraReducers: (builder: ActionReducerMapBuilder<AuthState>) => voi
 export const authReducers = {
   logout: (state: AuthState): void => {
     state.accessToken = '';
-    state.isLoggedIn = false;
     clearToken();
+    state.isLoggedIn = false;
   },
 };

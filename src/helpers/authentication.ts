@@ -1,6 +1,5 @@
 interface AuthToken {
   accessToken: string;
-  refreshToken: string;
 }
 
 export const authTokenKey = 'Authentication';
@@ -16,10 +15,9 @@ export const getToken = (): AuthToken | undefined => {
   return tokens;
 };
 
-export const setToken = (accessToken: string, refreshToken: string): void => {
+export const setToken = (accessToken: string): void => {
   const tokens: AuthToken = {
     accessToken,
-    refreshToken,
   };
   localStorage.setItem(authTokenKey, JSON.stringify(tokens));
 };

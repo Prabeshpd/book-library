@@ -12,6 +12,6 @@ export interface Books {
 }
 
 export interface FetchBooksResponse {
-  books: Books[];
+  data: Books[];
   meta: PaginationMeta;
 }

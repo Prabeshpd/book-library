@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useLocation } from 'react-router-dom';
 
 import { useAppDispatch } from '@/hooks/store';
-import { authActions } from '@/reducers/Authentication/authentication';
+import { logout } from '@/reducers/Authentication/authentication';
 
 function Header() {
   const location = useLocation();
@@ -10,8 +10,8 @@ function Header() {
 
   const dispatch = useAppDispatch();
 
-  const logout = () => {
-    dispatch(authActions.logout());
+  const dispatchLogout = () => {
+    dispatch(logout());
   };
 
   return (
@@ -19,26 +19,26 @@ function Header() {
       <nav className="app-header__navigation">
         <div className="app-header__menu">
           <a
-            href="/app/profile"
+            href="/profile"
             data-test-id="app-header-profile-nav"
             className={classNames('app-header__link', {
-              'app-header__link--active': pathSegment === '/app/profile',
+              'app-header__link--active': pathSegment === '/profile',
             })}
           >
             Profile
           </a>
           <a
-            href="/app/books"
+            href="/books"
             data-test-id="app-header-books-nav"
             className={classNames('app-header__link', {
-              'app-header__link--active': pathSegment === '/app/books',
+              'app-header__link--active': pathSegment === '/books',
             })}
           >
             Books
           </a>
         </div>
         <div className="app-header__dropdown">
-          <button type="button" onClick={logout}>
+          <button type="button" onClick={dispatchLogout}>
             Log out
           </button>
         </div>

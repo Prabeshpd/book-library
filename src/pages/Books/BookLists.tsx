@@ -28,7 +28,7 @@ const BookList = () => {
   const { onApplyFilter, resetFilter, state, setSortParams, setPageNumber } = useListBooks({ dispatchFetchBooks });
 
   const visitBookDetail = (id: string) => {
-    let path = `/app/book/${id}`;
+    let path = `/book/${id}`;
     navigate(path);
   };
 

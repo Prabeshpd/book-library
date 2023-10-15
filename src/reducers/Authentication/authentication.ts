@@ -15,12 +15,12 @@ const initialState: AuthState = {
 };
 
 export const authSlice = createSlice({
-  name: 'users',
+  name: 'authentication',
   initialState,
   reducers: authReducers,
   extraReducers: extraReducers,
 });
 
-export const authActions = authSlice.actions;
+export const { logout } = authSlice.actions;
 
 export default authSlice.reducer;
