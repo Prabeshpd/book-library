@@ -36,7 +36,8 @@
       "@/actions/*": ["./src/actions/*"],
       "@/reducers/*": ["./src/reducers/*"],
       "@/helpers/*": ["./src/helpers/*"],
-      "@/presenters/*": ["./src/presenters/*"]
+      "@/presenters/*": ["./src/presenters/*"],
+      "@/adapters/*": ["./src/adapters/*"]
     }
   },
   "types": ["node", "jest", "@testing-library/jest-dom"],

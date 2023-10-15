@@ -8,7 +8,7 @@ import { fetchBookDetail } from '@/actions/books';
 
 import toast from '@/lib/toast';
 
-import { borrowBooks } from '@/services/userBooks';
+import { borrowBooks } from '@/adapters/userBooks';
 import AppState from '@/types/states/app';
 import { Books } from '@/types/books';
 
@@ -47,7 +47,7 @@ const BookDetail = (props: BookDetailProps) => {
     if (!id) return;
 
     try {
-      await borrowBooks(userId, id);
+      await borrowBooks({ userId, bookId: id });
       await getBookDetail();
       toast('Book has been borrowed', 'success');
     } catch (err) {

@@ -20,6 +20,7 @@ module.exports = {
     '^@/reducers/(.*)$': '<rootDir>/src/reducers/$1',
     '^@/helpers/(.*)$': '<rootDir>/src/helpers/$1',
     '^@/presenters/(.*)$': '<rootDir>/src/presenters/$1',
+    '^@/adapters/(.*)$': '<rootDir>/src/adapters/$1',
   },
   transform: {
     '\\.(js|jsx)$': 'babel-jest',
