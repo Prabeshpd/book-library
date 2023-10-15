@@ -1,5 +1,13 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "prabesh1995nepalktm@gmail.com",
+      "password": "$2a$10$11juMXudmo272qHbgGB5jOPyBNV9Bx2Y5bh8i/YgMKkvSNE6Ig88W",
+      "name": "prabesh",
+      "imageUrl": "",
+      "id": "69c7ec91-8dbc-42de-a878-ecd322ee2441"
+    }
+  ],
   "books": [
     {
       "id": "a9b6b528-114d-49bc-a649-0c45391ef43a",
@@ -110,5 +118,11 @@
       "category": "fiction"
     }
   ],
-  "userBooks": []
+  "userBooks": [
+    {
+      "userId": "69c7ec91-8dbc-42de-a878-ecd322ee2441",
+      "bookId": "a9b6b528-114d-49bc-a649-0c45391ef43a",
+      "id": 1
+    }
+  ]
 }

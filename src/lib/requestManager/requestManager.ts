@@ -23,7 +23,7 @@ export const errorInterceptor = async (error: AxiosError<unknown>): Promise<unkn
 
       clearToken();
 
-      window.location.href = '/';
+      // window.location.href = '/';
 
       return Promise.resolve(blankResponse);
     }
@@ -42,7 +42,7 @@ export const defaultOptions = (): {
   headers?: { [key: string]: string };
 } => ({
   responseType: 'json',
-  baseURL: `${Config.apiBaseUrl}/api/v${Config.apiVersion}`,
+  baseURL: `${Config.apiBaseUrl}/`,
   headers: {
     'Content-Type': 'application/json',
   },

@@ -35,7 +35,7 @@ const initialState: BookState = {
 };
 
 export const bookSlice = createSlice({
-  name: 'users',
+  name: 'books',
   initialState,
   reducers: {},
   extraReducers: extraReducers,

@@ -1,11 +1,11 @@
 import { AxiosError } from 'axios';
 import { ActionReducerMapBuilder, AsyncThunkPayloadCreator, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
-import * as booksAdapter from 'src/adapters/books';
-
-import { BookState } from './books';
+import * as booksAdapter from '@/adapters/books';
 import { QueryParams } from '@/types/query';
 import { FetchBooksResponse, Books } from '@/types/books';
+
+import { BookState } from './books';
 
 export const FETCH_BOOKS_ACTION = 'fetch/books';
 export type FETCH_BOOKS_ACTION = typeof FETCH_BOOKS_ACTION;
@@ -62,7 +62,7 @@ export const fetchBookDetail = createAsyncThunk(FETCH_BOOK_DETAIL, fetchBookDeta
 export const extraReducers: (builder: ActionReducerMapBuilder<BookState>) => void = (builder) => {
   builder.addCase(fetchBooks.fulfilled, (state: BookState, action: PayloadAction<FetchBooksResponse>) => {
     state.isLoadingFetchBooks = false;
-    state.books = action.payload.books;
+    state.books = action.payload.data;
     state.meta = action.payload.meta;
   });
 

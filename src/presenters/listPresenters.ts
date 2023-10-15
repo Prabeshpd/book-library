@@ -2,7 +2,7 @@
 export const formatDataForReducer = (data: any[]) => {
   return {
     data,
-    metadata: {
+    meta: {
       limit: 10,
       totalCounts: 15,
       currentPage: 1,

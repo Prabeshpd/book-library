@@ -1,7 +1,8 @@
-import { ActionReducerMapBuilder, AsyncThunkPayloadCreator, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
-import User from '@/types/user';
-import * as userAdapter from 'src/adapters/user';
 import { AxiosError } from 'axios';
+import { ActionReducerMapBuilder, AsyncThunkPayloadCreator, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+
+import * as userAdapter from '@/adapters/user';
+import User from '@/types/user';
 
 import { UserState } from './users';
 

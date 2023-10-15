@@ -3,11 +3,12 @@ import pinterpolate from 'pinterpolate';
 import config from '@/config/config';
 import * as qs from '@/lib/queryString';
 import { isEmpty, filterNotNullValues } from '@/helpers/object';
+import { formatDataForReducer } from '@/presenters/listPresenters';
 import { QueryParams } from '@/types/query';
 
 import { get } from './base';
 
-export const fetchBooks = (queryParams: QueryParams) => {
+export const fetchBooks = async (queryParams: QueryParams) => {
   const { paginationQueryParams, filterQueryParams, sortQueryParams } = queryParams;
   let queryString = qs.stringify(paginationQueryParams);
 
@@ -22,8 +23,9 @@ export const fetchBooks = (queryParams: QueryParams) => {
   }
 
   const url = config.endpoints.fetchBooks + queryString;
+  const data = (await get(url)) as unknown as any[];
 
-  return get(url);
+  return formatDataForReducer(data);
 };
 
 export const fetchBookDetail = (id: string) => {

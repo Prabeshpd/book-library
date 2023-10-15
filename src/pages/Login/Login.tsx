@@ -22,7 +22,7 @@ const Login = () => {
   };
 
   if (isLoggedIn) {
-    return <Navigate to="/app/profile" replace={true} />;
+    return <Navigate to="/profile" replace={true} />;
   }
 
   return (
