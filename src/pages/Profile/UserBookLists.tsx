@@ -14,12 +14,11 @@ interface BookListProps {
   meta: PaginationMeta;
   userBooks: UserBook[];
   isLoadingFetchUserBooks: boolean;
-  fetchUserBooks: (userId: string, pageQueryParams: PageQueryParams) => void;
-  userId: string;
+  fetchUserBooks: (pageQueryParams: PageQueryParams) => void;
 }
 
 const UserBookList = (props: BookListProps) => {
-  const { userBooks, isLoadingFetchUserBooks, meta, userId, fetchUserBooks } = props;
+  const { userBooks, isLoadingFetchUserBooks, meta, fetchUserBooks } = props;
 
   const navigate = useNavigate();
 
@@ -43,7 +42,7 @@ const UserBookList = (props: BookListProps) => {
     async function listUserBooks() {
       try {
         const paginationParams = getQueryParams();
-        await fetchUserBooks(userId, paginationParams);
+        await fetchUserBooks(paginationParams);
       } catch (err) {
         toast('Unable to fetch the user books', 'error');
       }

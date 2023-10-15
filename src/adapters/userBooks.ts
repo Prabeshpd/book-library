@@ -1,21 +1,17 @@
 import config from '@/config/config';
-import http from '@/lib/requestManager/requestManager';
 import * as qs from '@/lib/queryString';
 import { formatDataForReducer } from '@/presenters/listPresenters';
 import { PageQueryParams } from '@/types/query';
+import { UserBooksPayload } from '@/types/userBooks';
 
-export async function borrowBooks(userId: string, bookId: string) {
-  const url = config.endpoints.borrowBooks;
-  const { data } = await http.post(url, { userId, bookId });
+import { get, post } from './base';
 
-  return data;
-}
-
-export async function fetchUserBooks(userId: string, paginationParams: PageQueryParams) {
+export const fetchUserBooks = async (paginationParams: PageQueryParams, userId: string) => {
   const queryString = `?_expand=book&${qs.stringify(paginationParams, { hasPrefix: false })}&userId=${userId}`;
   const url = config.endpoints.userBooks + queryString;
-
-  const { data } = await http.get(url);
+  const data = (await get(url)) as unknown as any[];
 
   return formatDataForReducer(data);
-}
+};
+
+export const borrowBooks = (payload: UserBooksPayload) => post(config.endpoints.borrowBooks, payload);

@@ -16,6 +16,9 @@ describe('Register', () => {
       cy.findByTestId(REGISTRATION_SELECTOR.submitButton).invoke('click');
 
       cy.hasToastMessage('success', 'The user account has been successfully created. You can now log in.');
+      cy.location().should((location) => {
+        expect(location.pathname).to.eq('/login');
+      });
     });
   });
 

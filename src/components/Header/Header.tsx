@@ -1,51 +1,44 @@
 import classNames from 'classnames';
-import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import { logout } from '@/actions/logout';
+import { useAppDispatch } from '@/hooks/store';
+import { logout } from '@/reducers/Authentication/authentication';
 
-interface DispatchPropsInterface {
-  logout: () => {};
-}
-
-type HeaderProps = DispatchPropsInterface;
-
-function Header(props: HeaderProps) {
+function Header() {
   const location = useLocation();
   const pathSegment = location.pathname;
 
-  const { logout } = props;
+  const dispatch = useAppDispatch();
+
+  const dispatchLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <header className="app-header">
       <nav className="app-header__navigation">
         <div className="app-header__menu">
           <a
-            href="/app/profile"
+            href="/profile"
             data-test-id="app-header-profile-nav"
             className={classNames('app-header__link', {
-              'app-header__link--active': pathSegment === '/app/profile',
+              'app-header__link--active': pathSegment === '/profile',
             })}
           >
             Profile
           </a>
           <a
-            href="/app/books"
+            href="/books"
             data-test-id="app-header-books-nav"
             className={classNames('app-header__link', {
-              'app-header__link--active': pathSegment === '/app/books',
+              'app-header__link--active': pathSegment === '/books',
             })}
           >
             Books
           </a>
         </div>
         <div className="app-header__dropdown">
-          <button
-            type="button"
-            onClick={() => {
-              logout();
-            }}
-          >
+          <button type="button" onClick={dispatchLogout}>
             Log out
           </button>
         </div>
@@ -54,8 +47,4 @@ function Header(props: HeaderProps) {
   );
 }
 
-const mapDispatchToProps = {
-  logout,
-};
-
-export default connect<null, DispatchPropsInterface>(null, mapDispatchToProps)(Header);
+export default Header;
