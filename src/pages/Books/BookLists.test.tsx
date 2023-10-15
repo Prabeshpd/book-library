@@ -1,35 +1,33 @@
 import '@testing-library/jest-dom';
 
-import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
-
 import { render, waitFor, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { useAppDispatch, useAppSelector } from '@/hooks/store';
+
 import BookList from './BookLists';
+import TestWrapper from '../../../test/testWrapper/TestWrapper';
 
 jest.mock('react-router-dom', () => ({
   useNavigate: jest.fn(),
 }));
+jest.mock('../../hooks/store');
 
-jest.mock('../../actions/books', () => ({
-  fetchBooks: jest.fn(),
-}));
+const mockDispatch = jest.fn();
 
 describe('Lists books', () => {
-  const mockStore = configureStore([]);
   describe('given there are no books', () => {
     it('renders the component with empty rows', async () => {
-      const store = mockStore({
-        fetchBooks: jest.fn(),
-        data: { books: { books: [], meta: {} } },
-        ui: { books: { isLoadingFetchBooks: false } },
-      });
+      const store = {
+        books: { books: [], meta: {}, isLoadingFetchBooks: false },
+      };
+      (useAppSelector as jest.Mock).mockImplementation((callback) => callback(store));
+      (useAppDispatch as jest.Mock).mockImplementation(() => mockDispatch);
 
       render(
-        <Provider store={store}>
+        <TestWrapper>
           <BookList />
-        </Provider>,
+        </TestWrapper>,
       );
 
       await waitFor(() => {
@@ -47,24 +45,23 @@ describe('Lists books', () => {
 
   describe('given there are books', () => {
     it('renders the table with valid rows', async () => {
-      const store = mockStore({
-        fetchBooks: jest.fn(),
-        data: {
-          books: {
-            books: [
-              { id: 1, title: '' },
-              { id: 2, title: '' },
-            ],
-            meta: { totalCounts: 2, limit: 10, currentPage: 1 },
-          },
+      const store = {
+        books: {
+          books: [
+            { id: 1, title: '' },
+            { id: 2, title: '' },
+          ],
+          meta: { totalCounts: 2, limit: 10, currentPage: 1 },
+          isLoadingFetchBooks: false,
         },
-        ui: { books: { isLoadingFetchBooks: false } },
-      });
+      };
+      (useAppSelector as jest.Mock).mockImplementation((callback) => callback(store));
+      (useAppDispatch as jest.Mock).mockImplementation(() => mockDispatch);
 
       render(
-        <Provider store={store}>
+        <TestWrapper>
           <BookList />
-        </Provider>,
+        </TestWrapper>,
       );
 
       await waitFor(() => {
@@ -78,24 +75,23 @@ describe('Lists books', () => {
 
   describe('given next button is clicked', () => {
     it('adds class name active to the page number button', async () => {
-      const store = mockStore({
-        fetchBooks: jest.fn(),
-        data: {
-          books: {
-            books: [
-              { id: 1, title: '' },
-              { id: 2, title: '' },
-            ],
-            meta: { totalCounts: 12, limit: 10, currentPage: 1 },
-          },
+      const store = {
+        books: {
+          books: [
+            { id: 1, title: '' },
+            { id: 2, title: '' },
+          ],
+          meta: { totalCounts: 12, limit: 10, currentPage: 1 },
+          isLoadingFetchBooks: false,
         },
-        ui: { books: { isLoadingFetchBooks: false } },
-      });
+      };
+      (useAppSelector as jest.Mock).mockImplementation((callback) => callback(store));
+      (useAppDispatch as jest.Mock).mockImplementation(() => mockDispatch);
 
       render(
-        <Provider store={store}>
+        <TestWrapper>
           <BookList />
-        </Provider>,
+        </TestWrapper>,
       );
 
       const user = userEvent.setup();

@@ -1,4 +1,4 @@
-import http from '@/lib/requestManager/requestManager';
+import requestManager from '@/lib/requestManager/requestManager';
 import fs from 'fs';
 
 const resetServer = async () => {
@@ -6,9 +6,7 @@ const resetServer = async () => {
 
   if (!database.users.length) return null;
 
-  const { data } = await http.post('/reloadDb');
-
-  return data;
+  return requestManager('POST', '/reloadDb');
 };
 
 export default resetServer;
