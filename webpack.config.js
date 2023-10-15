@@ -42,6 +42,7 @@ module.exports = {
       '@/reducers': path.resolve(__dirname, './src/reducers/'),
       '@/helpers': path.resolve(__dirname, './src/helpers/'),
       '@/presenters': path.resolve(__dirname, './src/presenters/'),
+      '@/adapters': path.resolve(__dirname, './src/adapters/'),
     },
   },
   module: {

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import RegistrationForm from './Form';
 
 import toast from '@/lib/toast';
-import { createUser } from '@/services/users';
+import { createUser } from '@/adapters/user';
 import { RegisterPayload } from '@/types/auth';
 import { useUserFirebaseDatabase } from '@/hooks/useFirebaseDatabase';
 
